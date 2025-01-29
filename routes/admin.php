@@ -39,6 +39,31 @@ Route::get('dashboard',[Dashboard::class,'landingPage'])->name('admin.dashboard'
 /*================ DEPOSITS ROUTE ====================*/
 Route::get('deposits',[Settings::class,'landingPage'])->name('deposits.index');
 Route::get('deposits/{id}/detail',[Settings::class,'processSetting'])->name('deposits.detail');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*================ SETTINGS ROUTE ====================*/
 Route::get('settings',[Settings::class,'landingPage'])->name('setting.index');
 Route::post('update-settings',[Settings::class,'processSetting'])->name('settings.update');

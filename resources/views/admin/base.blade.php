@@ -61,20 +61,26 @@
             Interface
         </div>
 
+        <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.delivery.index')}}">
-                <i class="fas fa-fw fa-train"></i>
-                <span>Logistics Section</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.flight.index')}}">
-                <i class="fas fa-fw fa-plane"></i>
-                <span>Flight Section</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.flight.booking.index')}}">
-                <i class="fas fa-fw fa-plane"></i>
-                <span>Flight Booking</span></a>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Utilities</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Utilities</h6>
+                    <a class="collapse-item" href="{{'#'}}">Users</a>
+                    <a class="collapse-item" href="{{'#'}}">Deposits</a>
+                    <a class="collapse-item" href="{{'#'}}">Withdrawals</a>
+                    <a class="collapse-item" href="{{'#'}}">Loans</a>
+                    <a class="collapse-item" href="{{'#'}}">Bill Payments</a>
+                    <a class="collapse-item" href="{{'#'}}">External Cards</a>
+                    <a class="collapse-item" href="{{'#'}}">Virtual Card Applications</a>
+                </div>
+            </div>
         </li>
 
 
