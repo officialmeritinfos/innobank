@@ -28,6 +28,7 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset('dashboard/user/css/responsive.css')}}">
 
+    @stack('css')
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{asset('home/images/'.$web->logo)}}">
     <!-- Title -->
@@ -83,14 +84,14 @@
             </li>
 
             <li>
-                <a href="#" class="box-style">
+                <a href="{{ route('transfer.index') }}" class="box-style">
                     <i class="bx bx-send"></i>
                     <span class="menu-title">Transfer </span>
                 </a>
             </li>
 
             <li>
-                <a href="#" class="box-style">
+                <a href="{{ route('deposit.index') }}" class="box-style">
                     <i class="bx bx-money"></i>
                     <span class="menu-title">Deposit</span>
                 </a>

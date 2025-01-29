@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\Login;
 use App\Http\Controllers\User\Dashboard;
+use App\Http\Controllers\User\DepositController;
 use App\Http\Controllers\User\Deposits;
 use App\Http\Controllers\User\Investments;
 use App\Http\Controllers\User\ManagedAccounts;
@@ -28,7 +29,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('dashboard',[Dashboard::class,'landingPage'])->name('user.dashboard');
-Route::get('dashboard/promo/{id}/enroll',[Dashboard::class,'enrollInPromo'])->name('user.enrollPromo');
 /*================ SETTINGS ROUTE ====================*/
 Route::get('settings',[Settings::class,'landingPage'])->name('setting.index');
 Route::post('update-settings',[Settings::class,'processSetting'])->name('settings.update');
@@ -39,5 +39,11 @@ Route::post('update-kyc',[Settings::class,'submitKyc'])->name('kyc.update');
 /*================ TRANSFERS ROUTE ====================*/
 Route::get('transfer',[Transfers::class,'landingPage'])->name('transfer.index');
 Route::post('transfer/new',[Transfers::class,'newTransfer'])->name('transfer.new');
+Route::get('transfer/{id}/detail',[Transfers::class,'showDetail'])->name('transfer.detail');
+/*================ DEPOSIT ROUTE ====================*/
+Route::get('deposit/index',[DepositController::class,'landingPage'])->name('deposit.index');
+Route::post('deposit/new',[DepositController::class,'deposit'])->name('deposit.new');
+Route::get('deposit/{id}/detail',[DepositController::class,'showDeposit'])->name('deposit.detail');
+Route::post('deposit/{id}/submit-proof',[DepositController::class,'submitPaymentProof'])->name('deposit.submitProof');
 
 Route::get('logout',[Login::class,'logout']);

@@ -11,10 +11,11 @@
                     <h5 class="mb-0">Overview</h5>
                 </div>
                 <div class="card-body text-center">
-                    <img class="rounded-circle border border-white" src="http://res.cloudinary.com/dyczsxojr/image/upload/v1737757996/ohasnwseypbmrz1mcrxn.png" width="100" height="100">
+                    <img class="rounded-circle border border-white"
+                         src="{{ asset('storage/'.$user->profile_picture) }}" width="100" height="100">
                     <h6 class="mt-3">Available Balance</h6>
-                    <p class="fs-4 fw-bold">BHD 0.00</p>
-                    <p class="text-muted">Richard John</p>
+                    <p class="fs-4 fw-bold">{{$user->account_currency}} {{number_format($user->balance,2)}}</p>
+                    <p class="text-muted">{{ $user->first_name.' '.$user->last_name }}</p>
                 </div>
             </div>
         </div>

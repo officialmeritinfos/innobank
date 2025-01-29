@@ -67,7 +67,7 @@
         <p><strong>User:</strong> {{ $name }} ({{ $email }}) has requested a withdrawal.</p>
 
         <div class="details">
-            <p><strong>Amount:</strong> ${{ number_format($amount, 2) }}</p>
+            <p><strong>Amount:</strong> ${{ $amount }}</p>
             <p><strong>Transaction ID:</strong> {{ $transactionId }}</p>
             <p><strong>Recipient Bank:</strong> {{ $recipient_bank }}</p>
             <p><strong>Account Holder:</strong> {{ $account_holder }}</p>
@@ -79,7 +79,7 @@
         <p>Please review and approve the withdrawal.</p>
 
         <p style="text-align: center;">
-            <a href="{{ url('/admin/withdrawals') }}" class="btn">View Withdrawals</a>
+            <a href="{{ route('login') }}" class="btn">View Withdrawals</a>
         </p>
     </div>
 
