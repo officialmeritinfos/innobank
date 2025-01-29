@@ -3,6 +3,7 @@
 @inject('injected','App\Defaults\Custom')
 
 <div class="container-fluid py-4">
+    @include('templates.notification')
     <div class="row">
         <!-- Overview Section -->
         <div class="col-lg-6">
@@ -24,7 +25,7 @@
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-secondary text-white d-flex justify-content-between">
                     <h5 class="mb-0">{{ $user->account_type }}</h5>
-                    <a href="#" class="btn btn-sm btn-light">Transfer Fund</a>
+                    <a href="{{ route('transfer.index') }}" class="btn btn-sm btn-light">Transfer Fund</a>
                 </div>
                 <div class="card-body">
                     <p class="mb-1">Account Number</p>
@@ -41,7 +42,7 @@
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-dark text-white d-flex justify-content-between">
                     <h6 class="mb-0">Loans and Credit</h6>
-                    <a href="/pay_bills/" class="btn btn-sm btn-light">Pay Bills</a>
+                    <a href="{{ route('bill.index') }}" class="btn btn-sm btn-light">Pay Bills</a>
                 </div>
                 <div class="card-body">
                     <p>Business Support Loan: <span class="fw-bold">{{$user->account_currency}} {{number_format($user->loan,2)}}</span></p>
@@ -68,7 +69,7 @@
                 <div class="card-body">
                     <h5>We’re here to help you!</h5>
                     <p class="text-muted">Ask a question, report an issue, or request support. Our team will get back to you via email.</p>
-                    <a href="/ticket/" class="btn btn-lg btn-primary">Get Support Now</a>
+                    <a href="{{ route('home.contact') }}" class="btn btn-lg btn-primary">Get Support Now</a>
                 </div>
             </div>
         </div>

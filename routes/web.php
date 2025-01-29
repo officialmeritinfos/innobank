@@ -27,7 +27,7 @@ Route::get('terms',[HomeController::class,'terms']);
 Route::get('privacy',[HomeController::class,'privacy']);
 Route::get('faqs',[HomeController::class,'faqs']);
 Route::get('faq',[HomeController::class,'faqs']);
-Route::get('contact',[HomeController::class,'contact']);
+Route::get('contact',[HomeController::class,'contact'])->name('home.contact');
 Route::get('flight-booking',[HomeController::class,'flightBooking'])->name('flight-booking');
 Route::post('flight-booking/process',[HomeController::class,'processFlightBooking'])->name('flight-booking.process');
 //Services

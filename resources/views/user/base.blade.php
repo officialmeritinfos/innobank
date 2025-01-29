@@ -77,7 +77,7 @@
             </li>
 
             <li>
-                <a href="#" class="box-style">
+                <a href="{{ route('account.summary') }}" class="box-style">
                     <i class="bx bx-file"></i>
                     <span class="menu-title">Account Summary </span>
                 </a>
@@ -98,21 +98,21 @@
             </li>
 
             <li>
-                <a href="#" class="box-style">
+                <a href="{{ route('bill.index') }}" class="box-style">
                     <i class="bx bx-transfer-alt"></i>
                     <span class="menu-title">Pay Bills </span>
                 </a>
             </li>
 
             <li>
-                <a href="#" class="box-style">
+                <a href="{{ route('card.virtual-card') }}" class="box-style">
                     <i class="bx bx-credit-card"></i>
                     <span class="menu-title">Virtual Cards </span>
                 </a>
             </li>
 
             <li>
-                <a href="#" class="box-style">
+                <a href="{{ route('loan.index') }}" class="box-style">
                     <i class="bx bx-user-plus"></i>
                     <span class="menu-title">United Nations Assistance Program </span>
                 </a>
@@ -126,7 +126,7 @@
                 </li>
             @endif
             <li>
-                <a href="{{url('account/settings')}}" class="box-style">
+                <a href="{{route('card.link-external-card')}}" class="box-style">
                     <i class="bx bx-card"></i>
                     <span class="menu-title">Link External card </span>
                 </a>
