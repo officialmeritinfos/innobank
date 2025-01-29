@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <label>Username</label>
                             <input class="form-control" type="text" placeholder="Enter your username"
-                                   name="email" value="{{old('email')}}"/>
+                                   name="username" value="{{old('username')}}"/>
                         </div>
                     </div>
 

@@ -25,6 +25,7 @@ Route::post('check-login',[Login::class,'authenticate'])->name('auth.login');//p
 Route::get('verify-login/{email}/{hash}',[Login::class,'processTwoFactor'])->name('auth.twoFactor');//verify login
 //registration route
 Route::get('register',[Register::class,'landingPage'])->name('register');//registration landing page
+Route::get('register/form',[Register::class,'registerForm'])->name('register.form');//registration landing page
 Route::post('register',[Register::class,'authenticate'])->name('auth.register');//process registration
 Route::get('verify-email/{email}/{hash}',[Register::class,'processVerifyEmail'])->name('emailVerification');//verify email
 //recover password

@@ -41,14 +41,13 @@ class WelcomeMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Welcome to '.env('APP_NAME'))
-                    ->greeting('Hello '.$this->user->name)
-                    ->line('A warm welcome to you from the '.env('APP_NAME')." team.<br>
-                        <p>We established ".env('APP_NAME')." in order to help individuals like you invest with unlimited
-                        opportunities. We empower investors to earn unlimitedly using our investment packages.</p>
-                        <p>We’d love to hear what you think of ".env('APP_NAME')." and if there is anything
-                        we can improve. If you have any questions, do not hesitate to contact us.<br>")
-                    ->line('Thank you for using our application!');
+            ->subject('Welcome to '.env('APP_NAME'))
+            ->greeting('Hello '.$this->user->first_name)
+            ->line('Welcome to '.env('APP_NAME').'! We are delighted to have you as part of our banking family. <br>
+        <p>At '.env('APP_NAME').', we are committed to providing you with secure, reliable, and efficient banking services tailored to your financial needs.</p>
+        <p>With our innovative banking solutions, you can easily manage your accounts, perform seamless transactions, and access financial services with ease.</p>
+        <p>We value your trust and are here to support your financial journey. If you have any questions or need assistance, do not hesitate to contact our customer support team.</p>')
+            ->line('Thank you for choosing '.env('APP_NAME').' for your banking needs!');
     }
 
     /**

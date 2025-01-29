@@ -14,6 +14,7 @@ use App\Notifications\LoginMail;
 use App\Notifications\TwoFactorMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class Login extends Controller
@@ -32,56 +33,48 @@ class Login extends Controller
 
     public function authenticate(Request $request)
     {
-        $web = GeneralSetting::where('id',1)->first();
-        $validator = Validator::make($request->input(),[
-            'email'=>['required','string','exists:users,username'],
-            'password'=>['required']
-        ],[],['email'=>'Username']);
+        $web = GeneralSetting::find(1);
 
-        if ($validator->fails()){
-            return back()->with('errors',$validator->errors());
+        $validator = Validator::make($request->all(), [
+            'username' => ['required', 'string', 'exists:users,username'],
+            'password' => ['required', 'string'],
+        ], [], ['username' => 'Username']);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
         }
-        $input = $validator->validated();
-        //check if the login checked out
-        if(Auth::attempt(['username' => $request->email, 'password' => $request->password])){
-            //is user active
-            $user = Auth::user();
-            if($user->status !=1)return back()->with('error', 'Account is inactive');
 
-            //check if email is verified
-            if ($user->emailVerified !=1){
+        $credentials = $validator->validated();
 
-                $user->notify(new EmailVerifyMail($user));
-                return back()->with('success','Verification email sent. Please check both your spambox for the mail.');
-            }
-            //check if user has two factor authentication on
-            switch ($user->twoWay){
-                case 1:
-                    //SendTwoFactorMail::dispatch($user);
-                    $user->notify(new TwoFactorMail($user));
-                    $dataUser = [
-                        'twoWayPassed'=>2
-                    ];
-                    $message = "Please authenticate this login request from your email";
-                    $url = route('login');
-                    break;
-                default:
-                    //$user->notify(new LoginMail($user,$request));
-                    $dataUser = [
-                        'twoWayPassed'=>1
-                    ];
-                    $message = "Login successful.";
-                    if ($user->is_admin ==1){
-                        $url = route('admin.admin.dashboard');
-                    }else {
-                        $url = route('user.dashboard');
-                    }
-                    break;
-            }
-            User::where('id',$user->id)->update($dataUser);//update user
-            return redirect($url)->with('info',$message);
+        if (!Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
+            return back()->with('error', 'Invalid username or password');
         }
-        return back()->with('error','Username and Password combination is wrong');
+
+        $user = Auth::user();
+
+        if ($user->status !== 'active') {
+            Auth::logout();
+            return back()->with('error', 'Your account is inactive. Please contact support.');
+        }
+
+        if (!$user->email_verified_at) {
+            Notification::send($user, new EmailVerifyMail($user));
+            Auth::logout();
+            return back()->with('success', 'Email Verification mail sent. Please check your inbox and spam folder.');
+        }
+
+        if ($user->twoWay) {
+            Notification::send($user, new TwoFactorMail($user));
+            User::where('id', $user->id)->update(['twoWayPassed' => false]);
+            Auth::logout();
+            return back()->with('info', 'Two-factor authentication required. Please check your email.');
+        }
+
+        User::where('id', $user->id)->update(['twoWayPassed' => true]);
+
+        $redirectRoute = $user->is_admin ? route('admin.dashboard') : route('user.dashboard');
+
+        return redirect($redirectRoute)->with('info', 'Login successful.');
     }
     public function processTwoFactor($email,$hash,Request $request)
     {
@@ -95,7 +88,7 @@ class Login extends Controller
         Auth::loginUsingId($user->id);
         //$user->notify(new LoginMail($user,$request));
 
-        $user->twoWayPassed=1;
+        $user->twoWayPassed=true;
         $user->save();
 
         TwoFactor::where('user',$user->id)->delete();
@@ -112,7 +105,7 @@ class Login extends Controller
     public function logout(Request $request)
     {
         $user = Auth::user();
-        $user->twoWayPassed=2;
+        $user->twoWayPassed=false;
         $user->save();
 
         Auth::logout();

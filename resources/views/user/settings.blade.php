@@ -18,22 +18,17 @@
                         <div class="form-group col-md-6 mt-3">
                             <label for="inputEmail4">Name</label>
                             <input type="text" class="form-control" id="name" placeholder="Name"
-                                   value="{{$user->name}}" name="name">
+                                   value="{{$user->first_name}} {{$user->last_name}}" name="name">
                         </div>
                         <div class="form-group col-md-6 mt-3">
                             <label for="inputEmail4">Email</label>
                             <input type="email" class="form-control" id="inputEmail4" placeholder="Email"
                                    value="{{$user->email}}" disabled>
                         </div>
-                        <div class="form-group col-md-6 mt-3">
+                        <div class="form-group col-md-12 mt-3">
                             <label for="inputEmail4">Username</label>
                             <input type="text" class="form-control" id="inputEmail4" placeholder="username"
                                    value="{{$user->username}}" disabled>
-                        </div>
-                        <div class="form-group col-md-6 mt-3">
-                            <label for="inputEmail4">Reference</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder=""
-                                   value="{{$user->userRef}}" disabled>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -47,12 +42,15 @@
                             <label for="inputAddress2">Date of Birth</label>
                             <input type="date" class="form-control" id="inputAddress2"
                                    placeholder="Enter your contact number" name="dob"
-                                   value="{{$user->dateOfBirth}}">
+                                   value="{{$user->dob}}">
                         </div>
                         <div class="form-group col-md-6 mt-3">
                             <label for="inputAddress2">Country</label>
-                            <input type="text" class="form-control" id="inputAddress2"
-                                   placeholder="Enter country" name="country" value="{{$user->country}}">
+                            <select class="form-control" name="country" >
+                                @foreach($countries as $country)
+                                    <option value="{{ $country->iso2 }}" {{$user->country==$country->iso2?'selected':''}}>{{$country->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group col-md-6 mt-3">
                             <label for="inputAddress2">2FA</label>
@@ -98,7 +96,7 @@
                                 <div class="row align-items-end justify-content-center">
                                     <div class="col-lg-4">
                                         <div class="avatar">
-                                            <img src="{{empty($user->photo)?'https://ui-avatars.com/api/?name='.$user->name:asset('dashboard/user/images/'.$user->photo)}}"
+                                            <img src="{{empty($user->profile_picture)?'https://ui-avatars.com/api/?name='.$user->name:asset('storage/'.$user->profile_picture)}}"
                                                  alt="Images" style="width: 80px;">
                                         </div>
                                     </div>

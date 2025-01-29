@@ -19,7 +19,7 @@ class isAdmin
     {
         $user = Auth::user();
 
-        if ($user->is_admin!=1){
+        if (!$user->is_admin){
             Auth::logout();
             $request->session()->invalidate();
 
@@ -27,7 +27,7 @@ class isAdmin
             return redirect()->to(route('login'))->with('error','You are not authorized to access this page. Contact support');
         }else{
 
-            if($user->twoWayPassed!=1){
+            if(!$user->twoWayPassed){
                 Auth::logout();
                 $request->session()->invalidate();
 

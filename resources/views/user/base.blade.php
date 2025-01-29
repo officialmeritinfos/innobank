@@ -74,86 +74,46 @@
                     <span class="menu-title">Dashboard</span>
                 </a>
             </li>
-{{--            <li>--}}
-{{--                <a href="#" class="has-arrow box-style">--}}
-{{--                    <i class="ri-money-dollar-box-line"></i>--}}
-{{--                    <span class="menu-title">Deposit</span>--}}
-{{--                </a>--}}
 
-{{--                <ul class="sidemenu-nav-second-level">--}}
-{{--                    <li>--}}
-{{--                        <a href="{{url('account/new_deposit')}}" >--}}
-{{--                            <span class="menu-title">New Deposit</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-
-{{--                    <li>--}}
-{{--                        <a href="{{url('account/deposits')}}">--}}
-{{--                            <span class="menu-title">Deposit List</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
             <li>
-                <a href="#" class="has-arrow box-style">
-                    <i class="ri-building-line"></i>
-                    <span class="menu-title">Investment</span>
+                <a href="#" class="box-style">
+                    <i class="bx bx-file"></i>
+                    <span class="menu-title">Account Summary </span>
                 </a>
-
-                <ul class="sidemenu-nav-second-level">
-                    <li>
-                        <a href="{{url('account/new_investment')}}">
-                            <span class="menu-title">Deposit</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{url('account/investments')}}">
-                            <span class="menu-title">Deposit History</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" class="has-arrow box-style">
-                    <i class="ri-send-plane-fill"></i>
-                    <span class="menu-title">Withdrawal</span>
-                </a>
-
-                <ul class="sidemenu-nav-second-level">
-
-                    <li>
-                        <a href="{{url('account/withdrawals')}}">
-                            <span class="menu-title">Withdrawals</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{url('account/new_withdrawals')}}">
-                            <span class="menu-title">New Withdrawal</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             <li>
-                <a href="{{route('transfer.index')}}" class="box-style">
+                <a href="#" class="box-style">
                     <i class="bx bx-send"></i>
-                    <span class="menu-title">Transfer Funds </span>
+                    <span class="menu-title">Transfer </span>
                 </a>
             </li>
 
             <li>
-                <a href="{{route('subtrade.index')}}" class="box-style">
-                    <i class="bx bx-user-plus"></i>
-                    <span class="menu-title">Managed Accounts </span>
+                <a href="#" class="box-style">
+                    <i class="bx bx-money"></i>
+                    <span class="menu-title">Deposit</span>
                 </a>
             </li>
 
             <li>
-                <a href="{{url('account/referral')}}" class="box-style">
+                <a href="#" class="box-style">
+                    <i class="bx bx-transfer-alt"></i>
+                    <span class="menu-title">Pay Bills </span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="box-style">
+                    <i class="bx bx-credit-card"></i>
+                    <span class="menu-title">Virtual Cards </span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="box-style">
                     <i class="bx bx-user-plus"></i>
-                    <span class="menu-title">Referrals </span>
+                    <span class="menu-title">United Nations Assistance Program </span>
                 </a>
             </li>
             @if($user->is_admin==1)
@@ -166,14 +126,14 @@
             @endif
             <li>
                 <a href="{{url('account/settings')}}" class="box-style">
-                    <i class="bx bx-cog"></i>
-                    <span class="menu-title">Settings </span>
+                    <i class="bx bx-card"></i>
+                    <span class="menu-title">Link External card </span>
                 </a>
             </li>
             <li>
-                <a href="{{route('setting.kyc')}}" class="box-style">
-                    <i class="bx bx-check-circle"></i>
-                    <span class="menu-title">KYC </span>
+                <a href="{{url('account/settings')}}" class="box-style">
+                    <i class="bx bx-cog"></i>
+                    <span class="menu-title">Account Settings </span>
                 </a>
             </li>
 
@@ -355,17 +315,6 @@
     new ClipboardJS('.copy');
 </script>
 @stack('js')
-<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = 'b5e5325bbdfaeb6f7b4eb11f8aa8f1b3ede3ef21';
-    window.smartsupp||(function(d) {
-        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-        c.type='text/javascript';c.charset='utf-8';c.async=true;
-        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-    })(document);
-</script>
-<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
 </body>
 </html>

@@ -6,6 +6,7 @@ use App\Defaults\Regular;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendEmailVerification;
 use App\Jobs\SendWelcomeMail;
+use App\Models\Country;
 use App\Models\EmailVerification;
 use App\Models\GeneralSetting;
 use App\Models\User;
@@ -13,6 +14,8 @@ use App\Notifications\EmailVerifyMail;
 use App\Notifications\InvestmentMail;
 use App\Notifications\WelcomeMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class Register extends Controller
@@ -24,8 +27,22 @@ class Register extends Controller
         $dataView=[
             'web'=>$web,
             'siteName'=>$web->name,
-            'pageName'=>'Account Registration',
+            'pageName'=>'Accept Terms',
             'referral'=>$request->get('referral')
+        ];
+
+        return view('auth.accept_terms',$dataView);
+    }
+    public function registerForm(Request $request)
+    {
+        $web = GeneralSetting::find(1);
+        $dataView=[
+            'web'=>$web,
+            'siteName'=>$web->name,
+            'pageName'=>'Account Registration',
+            'referral'=>$request->get('referral'),
+            'countries' => Country::all(),
+            'currencies' => Country::groupBy('currency')->get(),
         ];
 
         return view('auth.register',$dataView);
@@ -34,82 +51,102 @@ class Register extends Controller
     public function authenticate(Request $request)
     {
         $web = GeneralSetting::find(1);
-        $validator = Validator::make($request->input(),[
-            'name'=>['required','max:255'],
-            'email'=>['required','email'],
-            'username'=>['required','max:100','unique:users,username'],
-            'password'=>['required','string'],
-            'referral'=>['nullable','exists:users,username'],
-            'phone'=>['nullable']
+
+        $validator = Validator::make($request->all(), [
+            'first_name' => ['required', 'max:150'],
+            'last_name' => ['required', 'max:150'],
+            'username' => ['required', 'max:30', 'unique:users,username'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'phone' => ['required', 'max:30', 'unique:users,phone'],
+            'dob' => ['required', 'date'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'occupation' => ['required'],
+            'country' => ['required'],
+            'state' => ['required'],
+            'city' => ['required'],
+            'postal_code' => ['nullable', 'max:30'],
+            'street_address' => ['required', 'max:255'],
+            'gender' => ['required', 'in:M,F'],
+            'religion' => ['nullable', 'max:100'],
+            'account_type' => ['required'],
+            'account_currency' => ['required'],
+            'referral' => ['nullable', 'exists:users,username'],
+            'picture' => ['required', 'image', 'max:2048'],
         ]);
-        if ($validator->fails()){
-            return back()->with('errors',$validator->errors());
-        }
-        //check if registration is on
-        if ($web->registration !=1) return back()->with('error','Account registration is off at the moment');
 
-        if ($request->filled('referral')){
-            $ref = User::where('username',$request->input('referral'))->first();
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        if ($web->registration != 1) {
+            return back()->with('error', 'Account registration is off at the moment');
+        }
+
+        if ($request->filled('referral')) {
+            $ref = User::where('username', $request->input('referral'))->first();
             $refBy = $ref->id;
-        }else{
-            $refBy = 0;
+        } else {
+            $refBy = null;
         }
 
-        $userRef = $this->generateId('users','userRef');
+        $profilePicturePath = $request->file('picture') ? $request->file('picture')->store('profiles', 'public') : null;
 
-        $dataUser = [
-            'name'=>$request->input('name'), 'email'=>$request->input('email'),
-            'username'=>$request->input('username'), 'password'=>bcrypt($request->input('password')),
-            'userRef'=>$userRef, 'phone'=>$request->input('phone'),
-            'registrationIp'=>$request->ip(),
-            'twoWay'=>$web->twoFactor, 'emailVerified'=>$web->emailVerification,
-            'canWithdraw'=>$web->withdrawal,'canCompound'=>$web->compounding,
-            'referral'=>$refBy,
-            'passwordRaw'=>$request->input('password')
-        ];
+        $user = User::create([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'dob' => $request->input('dob'),
+            'password' => Hash::make($request->input('password')),
+            'occupation' => $request->input('occupation'),
+            'country' => $request->input('country'),
+            'state' => $request->input('state'),
+            'city' => $request->input('city'),
+            'postal_code' => $request->input('postal_code'),
+            'street_address' => $request->input('street_address'),
+            'gender' => $request->input('gender'),
+            'religion' => $request->input('religion'),
+            'account_type' => $request->input('account_type'),
+            'account_currency' => $request->input('account_currency'),
+            'referral' => $refBy,
+            'profile_picture' => $profilePicturePath,
+            'registrationIp' => $request->ip(),
+            'email_verified_at' => $web->emailVerification==1?now():null,
+            'emailVerified' => $web->emailVerification==1,
+            'status' => 'active',
+            'twoWay' => $web->twoFactor==1,
+            'account_number' => generateUniqueAccountNumber()
+        ]);
 
-        $created = User::create($dataUser);
-        if (!empty($created)){
-            //check if user needs to verify their account or not
-            switch ($created->emailVerified){
-                case 1:
-                    //SendWelcomeMail::dispatch($created);
-                    $created->notify(new WelcomeMail($created));
-                    $message = "Account was successfully created. Please login";
-                    // $created->email_verified_at = $created->markEmailAsVerified();
-                    // $created->save();
-                    break;
-                default:
-                    $message = "One more step; verify your email to login. A confirmation mail has been sent to you";
-                    //SendEmailVerification::dispatch($created);
-                    $created->notify(new EmailVerifyMail($created));
-                    break;
+        if ($user) {
+            //send verification email or welcome mail
+            if (!$user->emailVerified){
+                Notification::send($user, new EmailVerifyMail($user));
+                $msg = "Registration successful. Check your email to verify your account.";
+            }else{
+                Notification::send($user, new WelcomeMail($user));
+                $msg = "Registration successful. Proceed to login to your account.";
             }
-            if ($refBy!=0){
-                $referralMessage = "
-                        A new registration has been recorded on ".env('APP_NAME')." which was done using your
-                        referral link. Your commission will be credited to you upon user's investment. Thank you for
-                        using ".env('APP_NAME').".
-                    ";
-                $ref->notify(new InvestmentMail($ref,$referralMessage,'New Referral Registration'));
+
+            if ($refBy) {
+                $ref->notify(new InvestmentMail($ref, "A new user registered using your referral link.", 'New Referral Registration'));
             }
-            //notify admin
-            $admin = User::where('is_admin',1)->first();
-            if (!empty($admin)){
-                $adminMail = "
-                        A new registration has been recorded on ".env('APP_NAME').".
-                        The new user's name is ".$created->name." and user reference of <b>".$userRef."</b>.
-                    ";
-                $admin->notify(new InvestmentMail($admin,$adminMail,'New Registration'));
+
+            $admin = User::where('is_admin', 1)->first();
+            if ($admin) {
+                $admin->notify(new InvestmentMail($admin, "New user registered: {$user->first_name} {$user->last_name}.", 'New Registration'));
             }
-            return redirect()->route('login')->with('info',$message);
+
+            return redirect()->route('login')->with('info', $msg);
         }
-        return back()->with('error','Unable to create account');
+
+        return back()->with('error', 'Unable to create account');
     }
 
     public function processVerifyEmail($email,$hash)
     {
-        $user = User::where('user',$email)->firstOrFail();
+        $user = User::where('username',$email)->firstOrFail();
         $exists = EmailVerification::where('email',$user->username)->where('token',$hash)
             ->orderBy('id','desc')->firstOrFail();
 

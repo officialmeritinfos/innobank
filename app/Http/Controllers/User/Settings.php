@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\GeneralSetting;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class Settings extends Controller
             'web'=>$web,
             'user'=>$user,
             'pageName'=>'Account Settings',
-            'siteName'=>$web->name
+            'siteName'=>$web->name,
+            'countries' => Country::all(),
         ];
 
         return view('user.settings',$dataView);
@@ -47,12 +49,15 @@ class Settings extends Controller
 
         $input = $validated->validated();
 
-        $dataUser = [
-            'name'=>$input['name'],'dateOfBirth'=>$input['dob'],'phone'=>$input['phone'],
-            'country'=>$input['country'],'twoWay'=>$input['twoWay']
-        ];
+        $names = explode(' ',$input['name']);
 
-        $updated = User::where('id',$user->id)->update($dataUser);
+        $firstName = $names[0];
+        $lastName = $names[1];
+
+        $updated = User::where('id',$user->id)->update([
+            'first_name'=>$firstName,'last_name' => $lastName,'dob'=>$input['dob'],'phone'=>$input['phone'],
+            'country'=>$input['country'],'twoWay'=>$input['twoWay']
+        ]);
 
         if ($updated){
             return back()->with('success','Profile updated');
@@ -113,14 +118,13 @@ class Settings extends Controller
         //check if the Id Doc is uploaded
         if ($request->hasFile('photo')) {
             //lets upload the first image
-            $photo = time() . '_' . $request->file('photo')->hashName();
-            $request->photo->move(public_path('dashboard/user/images/'), $photo);
+            $photo = $request->file('photo') ? $request->file('photo')->store('profiles', 'public') : null;
 
         }else{
             return back()->with('error','Something went wrong while uploading Image');
         }
 
-        $user->photo=$photo;
+        $user->profile_picture=$photo;
         $user->save();
 
         return back()->with('success','Image successfully updated');
