@@ -82,6 +82,21 @@
                 </div>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOperations"
+               aria-expanded="true" aria-controls="collapseOperations">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Operations</span>
+            </a>
+            <div id="collapseOperations" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Operations</h6>
+                    <a class="collapse-item" href="{{ route('admin.payment-method.index') }}">Payment Methods</a>
+                    <a class="collapse-item" href="{{ route('admin.setting.index') }}">Settings</a>
+                </div>
+            </div>
+        </li>
 
 
         <!-- Divider -->

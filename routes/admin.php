@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DeliveryStageController;
 use App\Http\Controllers\Admin\DepositController;
 use App\Http\Controllers\Admin\FlightController;
 use App\Http\Controllers\Admin\LoansController;
+use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\Settings;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\VirtualCardController;
@@ -86,9 +87,19 @@ Route::get('virtual/cards/index',[VirtualCardController::class,'landingPage'])->
 Route::get('virtual/cards/approved',[VirtualCardController::class,'approved'])->name('virtual.cards.approved');
 Route::get('virtual/cards/rejected',[VirtualCardController::class,'rejected'])->name('virtual.cards.rejected');
 Route::post('virtual-cards/{id}/update-status', [VirtualCardController::class, 'updateStatus'])->name('virtual.cards.update_status');
+/*================ PAYMENT METHODS ROUTE ====================*/
+Route::get('payment-method/index',[PaymentMethodController::class,'landingPage'])->name('payment-method.index');
+// Cryptocurrency Methods
+Route::post('payment-methods/crypto', [PaymentMethodController::class, 'storeCrypto'])->name('payment_methods.store_crypto');
+Route::delete('payment-methods/crypto/{id}', [PaymentMethodController::class, 'destroyCrypto'])->name('payment_methods.destroy_crypto');
 
+// Gift Card Methods
+Route::post('payment-methods/giftcard', [PaymentMethodController::class, 'storeGiftCard'])->name('payment_methods.store_giftcard');
+Route::delete('payment-methods/giftcard/{id}', [PaymentMethodController::class, 'destroyGiftCard'])->name('payment_methods.destroy_giftcard');
 
-
+// Bank Transfer Methods
+Route::post('payment-methods/bank', [PaymentMethodController::class, 'storeBank'])->name('payment_methods.store_bank');
+Route::delete('payment-methods/bank/{id}', [PaymentMethodController::class, 'destroyBank'])->name('payment_methods.destroy_bank');
 
 
 
