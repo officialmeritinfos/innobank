@@ -21,13 +21,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('index',[HomeController::class,'index']);
-Route::get('about',[HomeController::class,'about']);
-Route::get('terms',[HomeController::class,'terms']);
+Route::get('about',[HomeController::class,'about'])->name('about');
+Route::get('terms',[HomeController::class,'terms'])->name('terms');
 Route::get('terms',[HomeController::class,'terms']);
 Route::get('privacy',[HomeController::class,'privacy']);
 Route::get('faqs',[HomeController::class,'faqs']);
-Route::get('faq',[HomeController::class,'faqs']);
+Route::get('faq',[HomeController::class,'faqs'])->name('faqs');
+Route::get('services',[HomeController::class,'services'])->name('services');
 Route::get('contact',[HomeController::class,'contact'])->name('home.contact');
+
+
 Route::get('flight-booking',[HomeController::class,'flightBooking'])->name('flight-booking');
 Route::post('flight-booking/process',[HomeController::class,'processFlightBooking'])->name('flight-booking.process');
 //Services

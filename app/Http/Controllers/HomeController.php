@@ -46,6 +46,19 @@ class HomeController extends Controller
 
         return view('home.about',$dataView);
     }
+
+    public function services()
+    {
+        $web = GeneralSetting::where('id',1)->first();
+
+        $dataView = [
+            'siteName'  => $web->name,
+            'web'       => $web,
+            'pageName'  => 'Our Services',
+        ];
+
+        return view('home.services',$dataView);
+    }
     public function terms()
     {
         $web = GeneralSetting::where('id',1)->first();

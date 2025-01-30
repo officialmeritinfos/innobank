@@ -9,10 +9,7 @@
 (function($) {
     "use strict";
 
-    // ------------------------ Switcher
-    if($("body").length) {
-      $("body").append('<a href="https://html.creativegigstf.com/piku/piku-dark" id="switcher" target="_blank" class="d-flex align-items-center justify-content-center" title="Dark Version"><i class="bi bi-moon-stars-fill"></i></a>');
-    }
+
 
       //-------------- Click event to scroll to top
       $(window).on('scroll', function (){
@@ -46,7 +43,7 @@
         }
 
         // ------------------------ Navigation Scroll
-        $(window).on('scroll', function (){   
+        $(window).on('scroll', function (){
           var sticky = $('.sticky-menu'),
           scroll = $(window).scrollTop();
           if (scroll >= 180) sticky.addClass('fixed');
@@ -63,7 +60,7 @@
             });
             $(this).on('focusout', function() {
                 $(this).attr('placeholder',$(this).data('holder'));
-            });     
+            });
         });
 
 
@@ -266,7 +263,7 @@
             ]
           });
       }
-      
+
 
 
       // ------------------------ Service Slider One
@@ -323,7 +320,7 @@
             autoplaySpeed: 3000,
           });
       }
-        
+
 
 
         // ------------------------ Counter Slider One
@@ -390,8 +387,8 @@
               ]
             });
         }
-        
-        
+
+
 
 
 
@@ -559,7 +556,7 @@ $(window).on ('load', function (){ // makes sure the whole site is loaded
             }
           );
           wow.init();
-        
+
 // ------------------------------------- Fancybox
         var fancy = $ ("[data-fancybox]");
         if(fancy.length) {

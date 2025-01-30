@@ -1,131 +1,181 @@
 @extends('home.base')
 @section('content')
-    @push('css')
-        <style>
-            .accordion-button:not(.collapsed) {
-                background-color: #0047ba;
-                color: #fff;
-            }
 
-            .accordion-button {
-                font-weight: bold;
-            }
-        </style>
-    @endpush
-    <!-- Page Title Start -->
-    <div class="page-title title-bg-1">
+    <!--
+		=============================================
+			FAQ Banner Section
+		==============================================
+		-->
+    <div class="inner-banner-two bg-one border-30 z-1 pt-100 lg-pt-60 pb-90 lg-pb-50 mt-30 lg-mt-20 position-relative">
         <div class="container">
-            <div class="title-text text-center">
-                <h2>{{$pageName}}</h2>
-                <ul>
-                    <li>
-                        <a href="{{url('/')}}">Home</a>
-                    </li>
-                    <li>{{$pageName}}</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Page Title End -->
-
-    <!-- Faq Section Start -->
-    <section class="faq-section pt-100 pb-70">
-        <div class="container">
-            <div class="section-title text-center">
-                <span>FAQ</span>
+            <div class="title-one text-center">
                 <h2>Frequently Asked Questions</h2>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-12 ">
-                    <div class="accordion" id="faqAccordion">
-                        <!-- Question 1 -->
+        </div>
+        <img src="{{asset('home/images/shape/shape_89.svg')}}" alt="" class="shapes shape_01">
+    </div>
+    <!-- /.inner-banner-two -->
+
+
+    <!--
+    =====================================================
+        FAQ Section
+    =====================================================
+    -->
+    <div class="faq-section-one bg-four position-relative z-1 pt-150 lg-pt-80 pb-120 lg-pb-60 border-30 mb-30 lg-mb-20 mt-30 lg-mt-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="accordion accordion-style-one" id="accordionOne">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What services does {{$web->name}} offer?
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    What is this platform?
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
                                 <div class="accordion-body">
-                                    {{$web->name}} offers a range of services including Logistics and Freight, Tour Planning, Vacation Packages, Visa Preparation, Travel Agency Services, and Flight Tracking. We aim to provide seamless and reliable solutions tailored to your needs.
+                                    <p class="fs-22">
+                                        Our platform provides <strong>secure, fast, and seamless financial services</strong>, including virtual debit cards, global money transfers, and multi-currency accounts.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Question 2 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
+                            <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How can I track my shipment or flight?
+                                    How do I create an account?
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
                                 <div class="accordion-body">
-                                    You can easily track your shipment or flight by visiting our <a href="{{route('home')}}#tracking-package" class="text-primary">tracking page</a>. Enter your tracking ID or PNR code, and you will receive real-time updates on your package or flight status.
+                                    <p class="fs-22">
+                                        Creating an account is simple. Click on the <strong>"Sign Up"</strong> button, provide your details, verify your identity, and start using our services in minutes.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Question 3 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    What is the process for visa preparation?
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    What are the available payment methods?
                                 </button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
                                 <div class="accordion-body">
-                                    Our visa preparation process involves a consultation to understand your requirements, a checklist of necessary documents, application preparation, submission to the embassy or consulate, and regular updates on your application status. We ensure a hassle-free experience.
+                                    <p class="fs-22">
+                                        You can fund your account using <strong>bank transfers, credit/debit cards, cryptocurrency, and gift cards</strong>. Withdrawals can be made directly to your bank or linked e-wallets.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Question 4 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    How do I book a tour or vacation package?
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    Are there any transaction fees?
                                 </button>
                             </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
                                 <div class="accordion-body">
-                                    Booking a tour or vacation package is simple! Visit our <a href="{{url('tour')}}" class="text-primary">Tours and Vacation</a> page, explore our packages, and fill out the booking form. Our team will contact you to finalize the details and provide personalized assistance.
+                                    <p class="fs-22">
+                                        We offer <strong>low transaction fees</strong>. You can check our detailed fee structure on our <a href="pricing.html"><strong>pricing page</strong></a>.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Question 5 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    What payment methods do you accept?
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                    Is my money safe with this platform?
                                 </button>
                             </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
                                 <div class="accordion-body">
-                                    We accept a variety of payment methods including credit/debit cards, bank transfers, and mobile payments. All transactions are secure and processed through our trusted payment gateway partners.
+                                    <p class="fs-22">
+                                        Yes. We use <strong>bank-grade security, two-factor authentication (2FA), and encrypted transactions</strong> to keep your money and data safe.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Column -->
+                <div class="col-lg-6">
+                    <div class="accordion accordion-style-one" id="accordionTwo">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAOne" aria-expanded="false" aria-controls="collapseAOne">
+                                    Can I withdraw money from my virtual card?
+                                </button>
+                            </h2>
+                            <div id="collapseAOne" class="accordion-collapse collapse" data-bs-parent="#accordionTwo">
+                                <div class="accordion-body">
+                                    <p class="fs-22">
+                                        Yes, you can withdraw funds from your virtual card directly to your <strong>linked bank account or e-wallet</strong>.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Question 6 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    How do I contact customer support?
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATwo" aria-expanded="false" aria-controls="collapseATwo">
+                                    How do I activate my virtual debit card?
                                 </button>
                             </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                            <div id="collapseATwo" class="accordion-collapse collapse" data-bs-parent="#accordionTwo">
                                 <div class="accordion-body">
-                                    You can reach our customer support team 24/7 via email at <a href="mailto:{{$web->email}}" class="text-primary">{{$web->email}}</a>, call us on Whatsapp at
-                                    <a href="{{$web->whatsappSupport}}" target="_blank" class="text-primary"> {{$web->phone}}</a>, or use the live chat feature on our website for immediate assistance.
+                                    <p class="fs-22">
+                                        After ordering your card, go to your account dashboard and select <strong>"Activate Card"</strong>. Follow the instructions to complete activation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAThree" aria-expanded="true" aria-controls="collapseAThree">
+                                    How can I contact customer support?
+                                </button>
+                            </h2>
+                            <div id="collapseAThree" class="accordion-collapse collapse" data-bs-parent="#accordionTwo">
+                                <div class="accordion-body">
+                                    <p class="fs-22">
+                                        Our <strong>24/7 customer support</strong> is available via <strong>live chat, email, and phone</strong>. Visit our <a href="contact-v1.html"><strong>Contact Us</strong></a> page for more details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAFour" aria-expanded="true" aria-controls="collapseAFour">
+                                    Can I link external bank accounts?
+                                </button>
+                            </h2>
+                            <div id="collapseAFour" class="accordion-collapse collapse" data-bs-parent="#accordionTwo">
+                                <div class="accordion-body">
+                                    <p class="fs-22">
+                                        Yes, you can link external bank accounts for <strong>funding and withdrawals</strong> within your account settings.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Contact CTA -->
+            <div class="text-center mt-60 lg-mt-40">
+                <h4 class="mb-35">Didn’t find the answer you were looking for?</h4>
+                <a href="{{ route('home.contact') }}" class="btn-two xl">Contact Us</a>
+            </div>
         </div>
-    </section>
+    </div>
 
 @endsection

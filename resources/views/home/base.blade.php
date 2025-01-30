@@ -1,34 +1,28 @@
-
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="UTF-8">
+    <meta name="keywords" content="	agency, ai, ai writer, app landing, creative, crm, html template, hosting, mobile app, multipurpose, payment, saas, software, support">
+    <meta name="description" content="Gen Z bank of the future.">
+    <meta property="og:site_name" content="Piku">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{$siteName}} - {{$pageName}}">
+    <meta name='og:image' content='{{asset('home/images/'.$web->logo)}}'>
+    <!-- For IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- For Resposive Device -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/bootstrap.min.css')}}">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/animate.css')}}">
-    <!-- Icofont CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/icofont.min.css')}}">
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/owl.carousel.min.css')}}">
-    <!--  Owl Carousel Theme CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/owl.theme.default.min.css')}}">
-    <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/magnific-popup.css')}}">
-    <!-- Meanmenu CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/meanmenu.css')}}">
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/style.css')}}">
-    <!-- Dark CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/dark.css')}}">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{asset('home/css/responsive.css')}}">
-    <!-- Title CSS -->
+    <!-- For Window Tab Color -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#0D1A1C">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#0D1A1C">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0D1A1C">
     <title>{{$pageName}} - {{$siteName}}</title>
     <!-- Favicon Link -->
-    <link rel="icon" type="image/png" href="{{asset('home/img/'.$web->logo)}}">
+    <link rel="icon" type="image/png" href="{{asset('home/images/loader.svg')}}">
     @stack('css')
     <style>
         .watkey {
@@ -62,340 +56,246 @@
             z-index: 9999;
         }
     </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('home/css/bootstrap.min.css')}}" media="all">
+    <!-- Main style sheet -->
+    <link rel="stylesheet" type="text/css" href="{{asset('home/css/style.min.css')}}" media="all">
+    <!-- responsive style sheet -->
+    <link rel="stylesheet" type="text/css" href="{{asset('home/css/responsive.css')}}" media="all">
+
+    <!-- Fix Internet Explorer ______________________________________-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js')}}"></script>
+    <script src="{{asset('home/vendor/html5shiv.js')}}"></script>
+    <script src="{{asset('home/vendor/respond.js')}}"></script>
+    <![endif]-->
 </head>
+
 <body>
-<!-- PreLoader Start -->
-<div class="loader-content">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="sk-folding-cube">
-                <div class="sk-cube1 sk-cube"></div>
-                <div class="sk-cube2 sk-cube"></div>
-                <div class="sk-cube4 sk-cube"></div>
-                <div class="sk-cube3 sk-cube"></div>
+<div class="main-page-wrapper dark-bg p-30">
+    <!-- ===================================================
+        Loading Transition
+    ==================================================== -->
+    <div id="preloader">
+        <div id="ctn-preloader" class="ctn-preloader">
+            <div class="icon"><img src="{{asset('home/images/loader.svg')}}" alt="" class="m-auto d-block"> <span></span></div>
+            <div class="txt-loading">
+                <div id="preloader">
+                    @foreach (str_split($siteName) as $char)
+                        <span data-text-preloader="{{ $char }}" class="letters-loading">
+                            {{ $char }}
+                        </span>
+                    @endforeach
+                </div>
+
             </div>
         </div>
     </div>
-</div>
-<!-- PreLoader End -->
 
-<!-- Header Area Start -->
-<div class="header-area">
-    <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-6">
-                <div class="header-left">
-                    <ul>
-                        <li>
-                            <a href="mailto:{{$web->email}}">
-                                <i class="icofont-ui-message"></i>
-                                <span >{{$web->email}}</span>
-                            </a>
-                        </li>
-                        @if($web->phone)
-                            <li>
-                                <a href="tel:{{$web->phone}}">
-                                    <i class="icofont-phone"></i>
-                                    {{$web->phone}} (For Whatsapp Call)
-                                </a>
+
+
+    <!--
+    =============================================
+        Theme Main Menu
+    ==============================================
+    -->
+    <header class="theme-main-menu menu-style-one">
+        <div class="inner-content bg-wrapper bg-one border-20">
+            <div class="top-header position-relative">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="logo order-lg-0">
+                        <a href="{{url('/')}}" class="d-flex align-items-center">
+                            <img src="{{asset('home/images/'.$web->logo)}}" alt="">
+                        </a>
+                    </div>
+                    <!-- logo -->
+                    <div class="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
+                        <ul class="d-flex align-items-center style-none">
+                            <li class="d-none d-md-inline-block ms-3">
+                                <a href="login" class="btn-one">Let’s Started</a>
                             </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="header-right">
-                    <ul class="header-social">
-                        <li>
-                            <div id="google_translate_element"></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Header Area End -->
+                        </ul>
+                    </div>
+                    <nav class="navbar navbar-expand-lg p0 order-lg-2">
+                        <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav align-items-lg-center">
+                                <li class="d-block d-lg-none"><div class="logo"><a href="{{url('/')}}" class="d-block">
+                                            <img src="{{asset('home/images/'.$web->logo)}}" alt=""></a></div></li>
 
-<!-- Navbar Area Start -->
-<div class="navbar-area">
-    <!-- For Mobile Device -->
-    <div class="mobile-nav">
-        <a href="index" class="logo">
-            <img src="{{asset('home/img/'.$web->logo)}}" class="main-logo" alt="logo" style="width: 70px;">
-            <img src="{{asset('home/img/'.$web->logo2)}}" class="white-logo" alt="logo" style="width: 70px;">
-        </a>
-    </div>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ route('home') }}" role="button"  aria-expanded="false">Home
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ route('about') }}" role="button"  aria-expanded="false">About
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ route('services') }}" role="button"  aria-expanded="false">
+                                        Services
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ route('faqs') }}" role="button"  aria-expanded="false">
+                                        FAQ
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ route('home.contact') }}" role="button"  aria-expanded="false">
+                                        Contact
+                                    </a>
+                                </li>
+                                <li class="d-md-none ps-3 pe-3 mt-20">
+                                    <a href="{{ route('register') }}" class="btn-one w-100">Let’s Started</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div> <!--/.top-header-->
+        </div> <!-- /.inner-content -->
+    </header>
+    <!-- /.theme-main-menu -->
 
-    <!-- For Desktop Device -->
-    <div class="main-nav">
+    @yield('content')
+
+    <!--
+=====================================================
+    Fancy Banner One
+=====================================================
+-->
+    <div class="fancy-banner-one position-relative z-1 bg-one border-30 text-center pt-130 lg-pt-80 pb-130 lg-pb-80 mb-30 lg-mb-20">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index">
-                    <img src="{{asset('home/img/'.$web->logo)}}" class="main-logo" alt="logo" style="width: 80px;">
-                    <img src="{{asset('home/img/'.$web->logo2)}}" class="white-logo" alt="logo" style="width: 80px;">
-                </a>
-                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a href="{{url('/')}}" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('about')}}" class="nav-link">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Services</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="{{url('tour')}}" class="nav-link">Tour</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('travel')}}" class="nav-link">Travel</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('logistics')}}" class="nav-link">Logistics</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('visa')}}" class="nav-link">Visa Preparation</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('flight-tracking')}}" class="nav-link">Flight Tracking</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Tracking</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="{{route('home')}}#tracking-package" class="nav-link">Track Package</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('home')}}#tracking-flight" class="nav-link">Track Flight</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('flight-booking')}}" class="nav-link">Flight Booking</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="{{url('faqs')}}" class="nav-link">FAQ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('privacy')}}" class="nav-link">Privacy policy</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('terms')}}" class="nav-link">Terms & Conditions</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{$web->whatsappSupport}}" target="_blank" class="nav-link">Call On Whatsapp</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('contact')}}" class="nav-link">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
-</div>
-<!-- Navbar Area End -->
-@yield('content')
-<!-- Newsletter Section Start -->
-<div class="newsletter-section">
-    <div class="container">
-        <div class="newsletter-area">
-            <h2>Join Newsletter For Daily Update</h2>
-            <div class="col-lg-6 p-0">
-                <form class="newsletter-form" data-bs-toggle="validator">
-                    <input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL" required autocomplete="off">
-
-                    <button class="default-btn electronics-btn" type="submit">
-                        Subscribe Now
-                    </button>
-
-                    <div id="validator-newsletter" class="form-result"></div>
-                </form>
-            </div>
-            <img src="{{asset('home/img/newsletter-img.png')}}" alt="newsletter image">
-        </div>
-    </div>
-</div>
-<!-- Newsletter Section End -->
-
-<!-- Footer Area Start -->
-<footer class="footer-area">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-sm-6">
-                <div class="footer-widget">
-                    <a href="index">
-                        <img src="{{asset('home/img/'.$web->logo2)}}" alt="logo">
-                    </a>
-                    <ul>
-                        @if($web->phone)
-                            <li>
-                                <i class="icofont-phone"></i>
-                                <a href="tel:{{$web->phone}}">
-                                    {{$web->phone}} (For Whatsapp Calls & Text)
-                                </a>
-                            </li>
-                        @endif
-
-                        <li>
-                            <i class="icofont-ui-message"></i>
-                            <a href="mailto:{{ $web->email }}">
-                                <span >{{ $web->email }}</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <i class="icofont-location-pin"></i>
-                            {{ $web->address }}
-                        </li>
-                    </ul>
-
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/login/" target="_blank">
-                            <i class="icofont-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank">
-                            <i class="icofont-instagram"></i>
-                        </a>
-                        <a href="https://twitter.com/i/flow/login" target="_blank">
-                            <i class="icofont-twitter"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/" target="_blank">
-                            <i class="icofont-linkedin"></i>
-                        </a>
+            <div class="row">
+                <div class="col-xxl-8 col-lg-7 m-auto">
+                    <div class="title-one mb-35 lg-mb-30">
+                        <h2>Take Control of Your Finances</h2>
                     </div>
                 </div>
             </div>
+            <p class="fs-28 mb-45 lg-mb-30">Get a secure and flexible digital banking experience with instant access to virtual debit cards, seamless transactions, and hassle-free international payments.</p>
+            <a href="{{route('register')}}" class="btn-two xl">Get Started Now</a>
+        </div>
+        <img src="{{asset('home/images/assets/ils_02.png')}}" alt="" class="shapes shape_01">
+        <img src="{{asset('home/images/assets/ils_03.png')}}" alt="" class="shapes shape_02">
+    </div>
 
-            <div class="col-lg-3 col-sm-6">
-                <div class="footer-widget">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li>
-                            <a href="{{url('tour')}}">Tour</a>
-                        </li>
-                        <li>
-                            <a href="{{url('flight-tracking')}}">Flight Tracking</a>
-                        </li>
-                        <li>
-                            <a href="{{url('logistics')}}">Logistics</a>
-                        </li>
-                        <li>
-                            <a href="{{url('travel')}}">Travel</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="col-lg-3 col-sm-6">
-                <div class="footer-widget">
-                    <h3>Our Support</h3>
-                    <ul>
-                        <li>
-                            <a href="{{url('privacy')}}">Privacy & Policy</a>
-                        </li>
-                        <li>
-                            <a href="{{url('faq')}}">FAQS</a>
-                        </li>
-                        <li>
-                            <a href="{{url('terms')}}">Terms & Conditions</a>
-                        </li>
-                        <li>
-                            <a href="{{url('contact')}}">Contact Us</a>
-                        </li>
-                        <li>
-                            <a href="{{url('about')}}">About Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="footer-widget">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li>
-                            <a href="{{url('/')}}">Home</a>
-                        </li>
-                        <li>
-                            <a href="{{url('about')}}">About Us</a>
-                        </li>
-                    </ul>
+    <!--
+    =====================================================
+        Footer One
+    =====================================================
+    -->
+    <div class="footer-one border-30 bg-one">
+        <div class="position-relative z-1">
+            <div class="container">
+                <!-- /.email-banner -->
+                <div class="position-relative">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="footer-intro mb-30">
+                                <div class="logo">
+                                    <a href="{{url('/')}}">
+                                        <img src="{{asset('home/images/'.$web->logo)}}" alt="">
+                                    </a>
+                                </div>
+                                <!-- logo -->
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6">
+                            <div class="footer-nav mb-20">
+                                <ul class="footer-nav-link style-none">
+                                    <li><a href="{{ route('about') }}">About </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6">
+                            <div class="footer-nav mb-20">
+                                <ul class="footer-nav-link style-none">
+                                    <li><a href="{{ route('faqs') }}">Faq’s</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <div class="footer-nav mb-20">
+                                <ul class="footer-nav-link style-none">
+                                    <li><a href="{{ route('services') }}">Services</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="footer-contact mb-20">
+                                <p class="fw-500 fs-20 text-dark mb-30 md-mb-20">
+                                    {!! $web->address !!}
+                                </p>
+                                @if($web->phone)
+                                    <a href="tel:{{$web->phone}}" class="tel fw-500 fs-24 tran3s mb-40">{{$web->phone}}</a>
+                                @endif
+                                <ul class="style-none d-flex align-items-center social-icon">
+                                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="copyright-text m0"><strong class="text-dark">@ 2022 - {{date('Y')}}.</strong> All Right Reserved. </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="copyright-area">
-        <p>© <span>{{$siteName}}</span>. License number <a href="#">{{$web->licenseNumber}}</a> </p>
-    </div>
+    </div> <!-- /.footer-one -->
 
-    <div class="lines">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
 
-    <div class="telegram-float-widget">
-        <a href="https://wa.me/{{$web->phone}}" target="_blank">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-media-applications/64/social_media_applications_23-whatsapp-256.png"
-                 alt="" width="50">
-        </a>
-    </div>
-</footer>
-<!-- Footer Area End -->
 
-<!-- Back top Button -->
-<div class="top-btn">
-    <i class="icofont-scroll-bubble-up"></i>
-</div>
 
-<!-- jQuery first, then Bootstrap JS -->
-<script src="{{asset('home/js/jquery.min.js')}}"></script>
-<script src="{{asset('home/js/bootstrap.bundle.min.js')}}"></script>
-<!-- Subscribe From JS -->
-<script src="{{asset('home/js/jquery.ajaxchimp.min.js')}}"></script>
-<!-- Form Validator JS -->
-<script src="{{asset('home/js/form-validator.min.js')}}"></script>
-<!-- Contact JS -->
-<script src="{{asset('home/js/contact-form-script.js')}}"></script>
-<!-- Owl Carousel Slider JS -->
-<script src="{{asset('home/js/owl.carousel.min.js')}}"></script>
-<!-- Magnific Popup JS -->
-<script src="{{asset('home/js/jquery.magnific-popup.min.js')}}"></script>
-<!-- WOW JS -->
-<script src="{{asset('home/js/wow.min.js')}}"></script>
-<!-- Meanmenu JS -->
-<script src="{{asset('home/js/meanmenu.js')}}"></script>
-<!-- Custom JS -->
-<script src="{{asset('home/js/custom.js')}}"></script>
-<script type="text/javascript">
-    window.onload = function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = '3b6a28dd2836347279fbd083cfd527b21d827203';
-    window.smartsupp||(function(d) {
-        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-        c.type='text/javascript';c.charset='utf-8';c.async=true;
-        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-    })(document);
-</script>
-<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
-@stack('js')
+    <button class="scroll-top">
+        <i class="bi bi-arrow-up-short"></i>
+    </button>
+
+
+
+
+    <!-- Optional JavaScript _____________________________  -->
+
+    <!-- jQuery first, then Bootstrap JS -->
+    <!-- jQuery -->
+    <script src="{{asset('home/vendor/jquery.min.js')}}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{asset('home/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- WOW js -->
+    <script src="{{asset('home/vendor/wow/wow.min.js')}}"></script>
+    <!-- Slick Slider -->
+    <script src="{{asset('home/vendor/slick/slick.min.js')}}"></script>
+    <!-- Fancybox -->
+    <script src="{{asset('home/vendor/fancybox/fancybox.umd.js')}}"></script>
+    <!-- Lazy -->
+    <script src="{{asset('home/vendor/jquery.lazy.min.js')}}"></script>
+    <!-- js Counter -->
+    <script src="{{asset('home/vendor/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('home/vendor/jquery.waypoints.min.js')}}"></script>
+    <!-- validator js -->
+    <script src="{{asset('home/vendor/validator.js')}}"></script>
+
+    <!-- Theme js -->
+    <script src="{{asset('home/js/theme.js')}}"></script>
+
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = '4226f74657666671c580b27bcb815030dae997d2';
+        window.smartsupp||(function(d) {
+            var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+            s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+            c.type='text/javascript';c.charset='utf-8';c.async=true;
+            c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</div> <!-- /.main-page-wrapper -->
 </body>
 </html>

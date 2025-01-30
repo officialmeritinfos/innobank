@@ -1,123 +1,159 @@
 @extends('home.base')
 @section('content')
-    <!-- Page Title Start -->
-    <div class="page-title title-bg-1">
+
+    <!--
+    =============================================
+        Block Feature Thirty - Introduction Section
+    ==============================================
+    -->
+    <div class="block-feature-thirty bg-one border-30 z-1 pt-120 lg-pt-80 pb-130 lg-pb-80 mt-30 lg-mt-20 position-relative">
         <div class="container">
-            <div class="title-text text-center">
-                <h2>{{$pageName}}</h2>
-                <ul>
-                    <li>
-                        <a href="{{url('/')}}">Home</a>
-                    </li>
-                    <li>{{$pageName}}</li>
-                </ul>
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-6 order-lg-last">
+                    <div class="ps-xl-5">
+                        <div class="title-one">
+                            <h2>Empowering Financial Freedom</h2>
+                        </div>
+                        <p class="fs-28 fw-500 text-dark mt-55 lg-mt-30 mb-70 lg-mb-40 pe-xxl-5">
+                            Our platform is built to provide secure, fast, and efficient financial solutions. Whether you need seamless money transfers, business-friendly virtual cards, or investment opportunities, we are here to help you achieve financial success.
+                        </p>
+                        <div class="fs-24 text-dark mb-40 lg-mb-30">- CEO, {{$siteName}}</div>
+                        <a href="{{ route('register') }}" class="btn-one">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <img src="{{asset('home/images/media/img_26.jpg')}}" alt="Banking Solutions" class="media-img md-mt-40">
+                </div>
+            </div>
+        </div>
+        <img src="{{asset('home/images/shape/shape_83.svg')}}" alt="" class="shapes shape_01">
+    </div>
+    <!-- /.block-feature-thirty -->
+
+    <!--
+    =====================================================
+        Our Features Section
+    =====================================================
+    -->
+    <div class="block-feature-two mb-30 lg-mb-20">
+        <div class="row gx-xl-4">
+            <div class="col-lg-4 d-flex wow fadeInUp mt-30 lg-mt-20">
+                <div class="card-style-one text-center border-30 bg-three w-100">
+                    <div class="icon rounded-circle d-flex align-items-center justify-content-center m-auto">
+                        <img src="{{asset('home/images/icon/icon_77.svg')}}" alt="Instant Transfers">
+                    </div>
+                    <h3>Instant Money Transfers</h3>
+                    <p class="fs-24 fw-500 text-dark">Send and receive money across borders with minimal fees and instant processing.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex wow fadeInUp mt-30 lg-mt-20" data-wow-delay="0.1s">
+                <div class="card-style-one text-center border-30 bg-three w-100">
+                    <div class="icon rounded-circle d-flex align-items-center justify-content-center m-auto">
+                        <img src="{{asset('home/images/icon/icon_78.svg')}}" alt="Security">
+                    </div>
+                    <h3>Advanced Security</h3>
+                    <p class="fs-24 fw-500 text-dark">Your funds and transactions are protected with top-tier encryption and fraud prevention systems.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex wow fadeInUp mt-30 lg-mt-20" data-wow-delay="0.2s">
+                <div class="card-style-one text-center border-30 bg-three w-100">
+                    <div class="icon rounded-circle d-flex align-items-center justify-content-center m-auto">
+                        <img src="{{asset('home/images/icon/icon_79.svg')}}" alt="Multi-Currency Support">
+                    </div>
+                    <h3>Multi-Currency Support</h3>
+                    <p class="fs-24 fw-500 text-dark">Operate accounts in different currencies, making global transactions seamless and cost-effective.</p>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Page Title End -->
+    <!-- /.block-feature-two -->
 
-    <!-- About Section Start -->
-    <section class="about-section about-style-two pb-100">
+    <!--
+    =====================================================
+        About Us - More Details
+    =====================================================
+    -->
+    <div class="block-feature-thirtyOne bg-one border-30 z-1 pt-120 lg-pt-80 pb-130 lg-pb-80 mb-30 lg-mb-20 position-relative">
         <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5">
-                    <div class="about-img">
-                        <img src="{{asset('home/img/about/2.jpg')}}" alt="about image">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="title-one">
+                        <h2>Who We Are</h2>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="about-text">
-                        <div class="section-title">
-                            <span>About Us</span>
-                            <h2>We Provide Fast & Safe Service to Our Customer</h2>
+                    <div class="accordion accordion-style-five ms-xxl-5 md-mt-50" id="accordionThree">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button pt-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Our Mission
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionThree">
+                                <div class="accordion-body">
+                                    <p class="fs-22">We aim to simplify financial transactions and make digital banking accessible to everyone, regardless of their location.</p>
+                                </div>
+                            </div>
                         </div>
-
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="about-tab" data-bs-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="mission-tab" data-bs-toggle="tab" href="#mission" role="tab" aria-controls="mission" aria-selected="false">Our Mission</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="goal-tab" data-bs-toggle="tab" href="#goal" role="tab" aria-controls="goal" aria-selected="false">Our Goal</a>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-                                <p>
-                                    At {{$siteName}}, we believe in creating exceptional experiences through reliable and efficient services.
-                                    For over two decades, we’ve been a trusted partner for logistics, travel, and vacation solutions.
-                                    Our team is committed to meeting your needs with precision, ensuring your journey or delivery is smooth and stress-free.
-                                </p>
-                                <p>We pride ourselves on:</p>
-                                <ul>
-                                    <li>Delivering packages and goods with utmost care.</li>
-                                    <li>Connecting people across the globe through seamless travel.</li>
-                                    <li>Providing tailored vacation and tour services that leave lasting memories.</li>
-                                </ul>
-                                <p>
-                                    At {{$siteName}}, we turn challenges into opportunities and strive to exceed expectations with every interaction.
-                                </p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Why Choose Us?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionThree">
+                                <div class="accordion-body">
+                                    <p class="fs-22">We offer a seamless banking experience with no hidden charges, ensuring transparency and security for all our customers.</p>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="mission" role="tabpanel" aria-labelledby="mission-tab">
-                                <p>
-                                    Our mission is simple: to simplify travel, logistics, and vacation planning for individuals and businesses worldwide. We are dedicated to:
-                                </p>
-                                <ul>
-                                    <li>Providing safe, reliable, and efficient services.</li>
-                                    <li>Building lasting relationships with our customers based on trust and excellence.</li>
-                                    <li>Leveraging technology to enhance every aspect of the customer experience.</li>
-                                </ul>
-                                <p>
-                                    {{$siteName}} is here to redefine convenience and reliability across all our services.
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="goal" role="tabpanel" aria-labelledby="goal-tab">
-                                <p>Our goal is to be the go-to partner for all your logistics and travel needs. By 2030, we aim to:</p>
-                                <ul>
-                                    <li>Expand our network to over 200 countries.</li>
-                                    <li>Serve over 10,000 satisfied customers annually.</li>
-                                    <li>Innovate and lead in sustainable logistics and travel solutions.</li>
-                                </ul>
-                                <p>
-                                    With {{$siteName}}, your satisfaction is not just a promise—it’s a guarantee.
-                                </p>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    Our Future Vision
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionThree">
+                                <div class="accordion-body">
+                                    <p class="fs-22">We envision a world where financial transactions are borderless, efficient, and fully automated for a hassle-free experience.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="section">
-                        <div class="section-title">
-
-                            <h2>What We Offer</h2>
-                        </div>
-                        <p>
-                            {{$siteName}} is a one-stop solution for all your logistics, travel, and freight needs. Our wide range of services includes:
-                        </p>
-                        <ul>
-                            <li><strong>Logistics and Freight:</strong> Air, road, ocean, and rail freight solutions tailored to your needs.</li>
-                            <li><strong>Travel Services:</strong> Flight booking, vacation planning, and visa assistance to make your journey hassle-free.</li>
-                            <li><strong>Tour Packages:</strong> Explore breathtaking destinations with our custom-designed tour packages.</li>
-                            <li><strong>Flight Tracking:</strong> Stay updated with real-time flight status and notifications.</li>
-                            <li><strong>E-Commerce Logistics:</strong> End-to-end solutions for online businesses, including warehousing and last-mile delivery.</li>
-                        </ul>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">
-                            <h2>Commitment to Sustainability</h2>
-                        </div>
-                        <p>
-                            At {{$siteName}}, we believe in building a better future. We are committed to implementing sustainable practices in our operations to minimize our environmental impact. From optimizing transportation routes to adopting eco-friendly packaging, we take every step to ensure our services are not just efficient but also environmentally responsible.
-                        </p>
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </section>
 
+            <div class="video-banner d-flex align-items-center justify-content-center mt-100 lg-mt-60">
+                <a class="video-btn tran3s rounded-circle d-flex align-items-center justify-content-center" data-fancybox="" href="https://www.youtube.com/embed/aXFSJTjVjw0">
+                    <i class="fa-sharp fa-solid fa-play"></i>
+                </a>
+            </div>
+
+            <div class="counter-wrapper mt-70 lg-mt-40">
+                <div class="row justify-content-between">
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="counter-block-one text-center text-lg-start mt-20">
+                            <div class="main-count fw-500 color-dark">$<span class="counter">9.1</span>B+</div>
+                            <span class="fs-22">Processed Transactions</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="counter-block-one text-center mt-20">
+                            <div class="main-count fw-500 color-dark"><span class="counter">20</span>+</div>
+                            <span class="fs-22">Years of Experience</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 ms-auto">
+                        <div class="counter-block-one text-center text-lg-start mt-20">
+                            <div class="main-count fw-500 color-dark"><span class="counter">1.2</span>M</div>
+                            <span class="fs-22">Active Users</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.block-feature-thirtyOne -->
 
 @endsection

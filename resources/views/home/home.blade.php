@@ -2,607 +2,403 @@
 @section('content')
 
 
-    <!-- Banner Section Start -->
-    <div class="banner-slider owl-carousel owl-theme">
-        <div class="banner-item banner-bg-one">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="banner-text">
-                            <h1>Your Gateway to Seamless Travel Experiences</h1>
-                            <p>
-                                From planning your dream vacation to booking flights and logistics, {{$siteName}} is here to
-                                make your journey effortless and memorable. Your adventure starts with us.
+    <!--
+    =============================================
+        Hero Banner
+    ==============================================
+    -->
+    <div class="hero-banner-one bg-one border-30 z-1 pt-120 lg-pt-80 pb-100 lg-pb-70 mt-30 lg-mt-20 position-relative">
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    <p class="fs-24 fw-500 text-dark mb-10 wow fadeInUp">Join Now!</p>
+                    <h1 class="hero-heading wow fadeInUp">SEAMLESS BANKING <img src="{{asset('home/images/shape/shape_01.svg')}}" alt="" class="d-inline-block"></span><span class="d-inline-block position-relative">INSTANT TRANSFERS <img src="{{asset('home/images/shape/shape_01.svg')}}" alt="" class="d-inline-block"></span>SMART SAVINGS</h1>
+                    <div class="row">
+                        <div class="col-xxl-8 col-lg-10">
+                            <p class="fs-24 text-dark pt-25 pb-30 lg-pb-20 xs-pb-10 wow fadeInUp" data-wow-delay="0.1s">
+                                Manage your finances effortlessly with our secure and innovative banking solutions. Experience
+                                fast, reliable, and globally accessible financial services tailored to your needs.
                             </p>
-
-                            <div class="banner-btn">
-                                <a href="{{url('contact')}}" class="default-btn">Book a Quote</a>
-                            </div>
                         </div>
                     </div>
+                    <ul class="style-none d-flex align-items-center flex-wrap">
+                        <li class="mt-10"><a href="{{ route('register') }}" class="btn-one me-4">Register</a></li>
+                        <li class="mt-10"><a href="{{ route('login') }}" class="btn-two xl">Login</a></li>
+                    </ul>
+                    <p class="fs-22 pt-100 md-pt-50 md-pb-20">
+                        <span class="fw-500 text-dark text-decoration-underline">Join 270,000+</span> customers today. </p>
                 </div>
             </div>
         </div>
-
-        <div class="banner-item banner-bg-two">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="banner-text">
-                            <h1>Logistics Made Simple</h1>
-                            <p>
-                                From small packages to large freight, {{$siteName}} ensures secure and timely delivery. Your
-                                business deserves reliable logistics—trust the experts.
-                            </p>
-
-                            <div class="banner-btn">
-                                <a href="{{url('contact')}}" class="default-btn">Get a Free Quote</a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="client-logo-wrapper">
+            <div class="container">
+                <div class="partner-logo-one">
+                    <div class="item"><img src="{{asset('home/images/logo/p_logo_01.png')}}" alt="" class="m-auto"></div>
+                    <div class="item"><img src="{{asset('home/images/logo/p_logo_02.png')}}" alt="" class="m-auto"></div>
+                    <div class="item"><img src="{{asset('home/images/logo/p_logo_03.png')}}" alt="" class="m-auto"></div>
+                    <div class="item"><img src="{{asset('home/images/logo/p_logo_04.png')}}" alt="" class="m-auto"></div>
+                    <div class="item"><img src="{{asset('home/images/logo/p_logo_05.png')}}" alt="" class="m-auto"></div>
+                    <div class="item"><img src="{{asset('home/images/logo/p_logo_06.png')}}" alt="" class="m-auto"></div>
+                    <div class="item"><img src="{{asset('home/images/logo/p_logo_04.png')}}" alt="" class="m-auto"></div>
                 </div>
             </div>
         </div>
-        <div class="banner-item banner-bg-three">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="banner-text">
-                            <h1>Your Partner in Hassle-Free Travel</h1>
-                            <p>
-                                At {{$siteName}}, we don’t just offer services; we craft experiences. From tours to logistics,
-                                every detail is handled with care and precision.
-                            </p>
-
-                            <div class="banner-btn">
-                                <a href="{{url('contact')}}" class="default-btn">Get a Free Quote</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <img src="{{asset('home/images/assets/ils_01.png')}}" alt="" class="shapes illustration">
     </div>
-    <!-- Banner Section End -->
+    <!-- /.hero-banner-one -->
 
-    <!-- Features Section Start -->
-    <div class="features-section">
+
+
+
+
+    <!--
+    =====================================================
+        BLock Feature One
+    =====================================================
+    -->
+    <div class="block-feature-one border-30 bg-three mt-30 lg-mt-20 pt-150 lg-pt-80 pb-200 lg-pb-140">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-                    <div class="feature-card">
-                        <i class="icofont-fast-delivery"></i>
-                        <span>87,357 KM</span>
-                        <h3>Total Delivered</h3>
-                        <p>
-                            We’ve covered over 87,000 kilometers delivering excellence. From packages to logistics, our commitment
-                            to efficiency and reliability knows no bounds.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-                    <div class="feature-card">
-                        <i class="icofont-location-pin"></i>
-                        <span>120</span>
-                        <h3>Countries Served</h3>
-                        <p>
-                            Our global reach spans 120 countries, connecting businesses and individuals across the globe with
-                            timely and secure delivery solutions.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-                    <div class="feature-card">
-                        <i class="icofont-users-alt-3"></i>
-                        <span>3.2K</span>
-                        <h3>Customers Served</h3>
-                        <p>
-                            Join the 3,200+ satisfied customers who trust {{$siteName}} for their logistics, travel, and vacation
-                            needs. Your satisfaction drives us forward.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-                    <div class="feature-card">
-                        <i class="icofont-thumbs-up"></i>
-                        <span>27</span>
-                        <h3>Years Experience</h3>
-                        <p>
-                            With 27 years of industry expertise, we’ve honed our skills to deliver unparalleled services in
-                            travel, logistics, and beyond.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Features Section End -->
-
-    <!-- Why Choose Section Start -->
-    <section class="why-choose-section">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 p-0" id="tracking-package">
-                    <div class="why-choose-img">
-                        <div class="shipping-text">
-                            <h3>Know Shipping Location</h3>
-                            <p>Track ID will be on your document file.</p>
-                            <form method="post" action="{{route('tracking.package.process')}}">
-                                @include('templates.notification')
-                                @csrf
-                                <div class="form-group">
-                                    <input type="text"  class="form-control" placeholder="Enter Track ID" name="tracking_id">
-                                </div>
-
-                                <button type="submit" class="shipping-btn">
-                                    Track Now
-                                </button>
-                            </form>
+            <div class="row">
+                <div class="col-xxl-7 col-lg-6 order-lg-last">
+                    <div class="ps-lg-5 ms-xxl-4 md-mb-60">
+                        <div class="title-one">
+                            <h2>SMART CARDS FOR BUSINESS & PERSONAL FINANCE</h2>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 p-0">
-                    <div class="why-choose-text">
-                        <div class="section-title">
-                            <h2>Why People Choose {{$siteName}}?</h2>
-                        </div>
-
-                        <div class="accordions">
-                            <div class="accordion-item">
-                                <div class="accordion-title" data-tab="item1">
-                                    <i class="icofont-fast-delivery"></i>
-                                    <h2>Fast & Safe Delivery <i class="icofont-stylish-right down-arrow"></i></h2>
-                                </div>
-                                <div class="accordion-content" id="item1">
-                                    <p>
-                                        At {{$siteName}}, speed and safety are our top priorities. We ensure your parcels and
-                                        goods are delivered promptly and securely to their destination, no matter the size or distance.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <div class="accordion-title" data-tab="item2">
-                                    <i class="icofont-ssl-security"></i>
-                                    <h2>Product Security <i class="icofont-stylish-right down-arrow"></i></h2>
-                                </div>
-                                <div class="accordion-content" id="item2">
-                                    <p>
-                                        Your goods are precious, and we treat them as such. Our logistics team uses cutting-edge
-                                        technology and robust protocols to safeguard your shipments throughout the journey.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <div class="accordion-title" data-tab="item3">
-                                    <i class="icofont-diamond"></i>
-                                    <h2>Price Oriented <i class="icofont-stylish-right down-arrow"></i></h2>
-                                </div>
-                                <div class="accordion-content" id="item3">
-                                    <p>
-                                        Affordable and transparent pricing is at the core of our services. We offer competitive
-                                        rates without compromising on quality, making us the best choice for cost-effective logistics solutions.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <div class="accordion-title" data-tab="item4">
-                                    <i class="icofont-ui-browser"></i>
-                                    <h2>Secured Payment <i class="icofont-stylish-right down-arrow"></i></h2>
-                                </div>
-                                <div class="accordion-content" id="item4">
-                                    <p>
-                                        Trust is essential, and our payment systems are designed to provide maximum security.
-                                        With multiple secure payment options, you can transact with confidence and ease.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <div class="accordion-title" data-tab="item5">
-                                    <i class="icofont-live-support"></i>
-                                    <h2>24/7 Support <i class="icofont-stylish-right down-arrow"></i></h2>
-                                </div>
-                                <div class="accordion-content" id="item5">
-                                    <p>
-                                        Need help at any hour? Our dedicated customer support team is available 24/7 to assist
-                                        you with tracking, inquiries, or resolving issues swiftly.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <div class="accordion-title" data-tab="item6">
-                                    <i class="icofont-like"></i>
-                                    <h2>Well Experienced <i class="icofont-stylish-right down-arrow"></i></h2>
-                                </div>
-                                <div class="accordion-content" id="item6">
-                                    <p>
-                                        With over two decades of expertise in logistics, freight, and travel, {{$siteName}} has
-                                        the knowledge and resources to handle your needs with unmatched professionalism and reliability.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Why Choose Section End -->
-
-    <!-- Get Quote Section Start -->
-    <div class="get-quote-section quote-bg pt-100 pb-100">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6" id="tracking-flight">
-                    <div class="quote-text">
-
-                        <h2>Track & Verify Flight Tickets</h2>
-                        <p>
-                            With our system you can track any flight, and be sure that the ticket shown to you is real!
+                        <p class="fs-28 text-dark fw-500 mt-40 md-mt-20">
+                            Unlock seamless transactions with our virtual and physical debit cards, backed by secure, multi-currency
+                            banking solutions. Whether you're a business owner or an individual, our smart cards empower you with flexibility and global access.
                         </p>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6 wow animate__animated animate__bounceInUp" data-wow-duration="1s" >
-                    <div class="quote-form">
-                        <h2>Track & Verify Flight Ticket </h2>
-
-                        <form method="post" action="{{route('tracking.flight.process')}}">
-                            @csrf
-                            @include('templates.notification')
-                            <div class="row justify-content-center">
-                                <div class="col-md-12 col-12 pr-0">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="PNR" required minlength="6" maxlength="6"
-                                               name="pnr">
+                        <div class="counter-wrapper mt-25 mb-70 lg-mb-50">
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="counter-block-one mt-20">
+                                        <div class="main-count fw-500 color-dark">$<span class="counter">9.1</span>B+</div>
+                                        <span class="fs-22">Total transaction volume covered</span>
                                     </div>
+                                    <!-- /.counter-block-one -->
+                                </div>
+                                <div class="col-5">
+                                    <div class="counter-block-one mt-20">
+                                        <div class="main-count fw-500 color-dark"><span class="counter">270</span>k+</div>
+                                        <span class="fs-22">Users enjoying low-interest rates</span>
+                                    </div>
+                                    <!-- /.counter-block-one -->
                                 </div>
                             </div>
-
-                            <button type="submit">Submit </button>
-                        </form>
+                        </div>
+                        <a href="{{ route('register') }}" class="btn-two xl">Order Your Card Now!</a>
+                    </div>
+                </div>
+                <div class="col-xxl-5 col-lg-6 col-md-7 m-auto text-end order-lg-first">
+                    <div class="img-holder z-1 d-inline-block position-relative">
+                        <img src="{{asset('home/images/assets/card_01.png')}}" alt="">
+                        <img src="{{asset('home/images/assets/card_02.png')}}" alt="" class="card_01 wow fadeInLeft" data-wow-delay="0.1s">
+                        <img src="{{asset('home/images/assets/card_03.png')}}" alt="" class="card_02 wow fadeInLeft" data-wow-delay="0.2s">
+                        <img src="{{asset('home/images/shape/shape_02.svg')}}" alt="" class="shapes shape_01 wow fadeInLeft" data-wow-delay="0.3s">
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- /.block-feature-one -->
 
-        <div class="lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+
+    <!--
+    =====================================================
+        BLock Feature Two
+    =====================================================
+    -->
+    <div class="block-feature-two mb-30 lg-mb-20">
+        <div class="row gx-xl-4">
+            <div class="col-lg-4 d-flex wow fadeInUp mt-30 lg-mt-20">
+                <div class="card-style-one text-center border-30 bg-white w-100">
+                    <div class="icon rounded-circle d-flex align-items-center justify-content-center m-auto"><img src="{{asset('home/images/icon/icon_01.svg')}}" alt=""></div>
+                    <h3>Instant Payments in <br> minutes</h3>
+                    <p class="fs-24 fw-500 text-dark">
+                        Receive payments from global employers and clients directly into your account within minutes—no delays, no hidden fees.
+                    </p>
+                </div>
+                <!-- /.card-style-one -->
+            </div>
+            <div class="col-lg-4 d-flex wow fadeInUp mt-30 lg-mt-20" data-wow-delay="0.1s">
+                <div class="card-style-one text-center border-30 bg-white w-100">
+                    <div class="icon rounded-circle d-flex align-items-center justify-content-center m-auto"><img src="{{asset('home/images/icon/icon_02.svg')}}" alt=""></div>
+                    <h3>Top-Notch Security &  <br> Protection</h3>
+                    <p class="fs-24 fw-500 text-dark">
+                        Zero monthly fees for holding your money securely. Your funds are protected with multi-layer encryption and bank-grade security.
+                    </p>
+                </div>
+                <!-- /.card-style-one -->
+            </div>
+            <div class="col-lg-4 d-flex wow fadeInUp mt-30 lg-mt-20" data-wow-delay="0.2s">
+                <div class="card-style-one text-center border-30 bg-white w-100">
+                    <div class="icon rounded-circle d-flex align-items-center justify-content-center m-auto"><img src="{{asset('home/images/icon/icon_03.svg')}}" alt=""></div>
+                    <h3>Easy Global Transfers</h3>
+                    <p class="fs-24 fw-500 text-dark">
+                        Send money to your local bank account at the best exchange rates with no hidden charges—fast, reliable, and convenient.
+                    </p>
+                </div>
+                <!-- /.card-style-one -->
+            </div>
         </div>
     </div>
-    <!-- Get Quote Section End -->
+    <!-- /.block-feature-two -->
 
-    <!-- About Section Start -->
-    <section class="about-section pt-100">
+
+    <!--
+    =====================================================
+        BLock Feature Three
+    =====================================================
+    -->
+    <div class="block-feature-three border-30 bg-two pt-130 lg-pt-80 md-pt-30 pb-150 lg-pb-80 mb-30 lg-mb-20">
         <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-                    <div class="about-img">
-                        <img src="{{asset('home/img/about/1.jpg')}}" alt="about image">
+            <div class="row align-items-center">
+                <div class="col-lg-6 wow fadeInLeft">
+                    <div class="title-one mb-30 mt-50">
+                        <h2>Effortless Global Money.  <span class="d-inline-block position-relative">with <img src="{{asset('home/images/shape/shape_03.svg')}}" alt="" class="d-inline-block"></span> <br> Low Fees</h2>
+                    </div>
+                    <p class="fs-24 fw-500 text-dark">
+                        Sending money internationally has never been easier. Whether you're making online purchases, covering
+                        holiday expenses, or supporting family abroad, our platform ensures seamless global transfers with the lowest exchange rates.
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-8 m-auto text-end wow fadeInRight">
+                    <div class="img-holder-one position-relative d-inline-block z-1 md-mt-40">
+                        <img src="{{asset('home/images/assets/card_04.png')}}" alt="">
+                        <img src="{{asset('home/images/shape/shape_04.svg')}}" alt="" class="shapes shape_01">
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about-text">
-                        <div class="section-title">
-                            <span>About Us</span>
-                            <h2>We Provide Fast & Safe Service to Our Customer</h2>
-                        </div>
+            </div>
 
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="about-tab" data-bs-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="mission-tab" data-bs-toggle="tab" href="#mission" role="tab" aria-controls="mission" aria-selected="false">Our Mission</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="goal-tab" data-bs-toggle="tab" href="#goal" role="tab" aria-controls="goal" aria-selected="false">Our Goal</a>
-                            </li>
+            <div class="row align-items-center mt-100 md-mt-30">
+                <div class="col-lg-6 wow fadeInRight order-lg-last">
+                    <div class="ps-xl-5">
+                        <div class="title-one mb-30 mt-50">
+                            <h2>Seamless Card Management for <span class="d-inline-block position-relative"> Effortless Transactions<img src="{{asset('home/images/shape/shape_03.svg')}}" alt="" class="d-inline-block"></span></h2>
+                        </div>
+                        <p class="fs-24 fw-500 text-dark">
+                            Enjoy the convenience of virtual debit cards designed for your everyday transactions. Our virtual
+                            cards offer a secure and flexible way to shop online, pay for subscriptions, and withdraw funds
+                            from ATMs without the hassle of carrying a physical card.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8 m-auto wow fadeInLeft order-lg-first">
+                    <div class="img-holder-two position-relative d-inline-block z-1 md-mt-20">
+                        <img src="{{asset('home/images/assets/card_05.png')}}" alt="">
+                        <img src="{{asset('home/images/shape/shape_05.svg')}}" alt="" class="shapes shape_01">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.block-feature-three -->
+
+
+    <!--
+    =====================================================
+        Feedback Section One
+    =====================================================
+    -->
+    <div class="feedback-section-one mb-30 lg-mb-20">
+        <div class="feedback-slider-one">
+            <div class="item">
+                <div class="feedback-block-one bg-white border-30">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <img src="{{asset('home/images/logo/p_logo_07.png')}}" alt="">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center"><img src="{{asset('home/images/icon/icon_04.svg')}}" alt=""></div>
+                    </div>
+                    <blockquote>
+                        "A seamless banking experience! **Transactions are smooth, fast, and secure**. I’ve never felt more in control of my finances."
+                    </blockquote>
+                    <div class="d-sm-flex align-items-center justify-content-between">
+                        <p class="m0"><span class="fw-500 text-dark fs-20">David Johnson,</span> Financial Analyst</p>
+                        <ul class="style-none d-flex rating">
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
                         </ul>
-
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-                                <p>
-                                    At {{$siteName}}, we believe in creating exceptional experiences through reliable and efficient services.
-                                    For over two decades, we’ve been a trusted partner for logistics, travel, and vacation solutions.
-                                    Our team is committed to meeting your needs with precision, ensuring your journey or delivery is smooth and stress-free.
-                                </p>
-                                <p>We pride ourselves on:</p>
-                                <ul>
-                                    <li>Delivering packages and goods with utmost care.</li>
-                                    <li>Connecting people across the globe through seamless travel.</li>
-                                    <li>Providing tailored vacation and tour services that leave lasting memories.</li>
-                                </ul>
-                                <p>
-                                    At {{$siteName}}, we turn challenges into opportunities and strive to exceed expectations with every interaction.
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="mission" role="tabpanel" aria-labelledby="mission-tab">
-                                <p>
-                                    Our mission is simple: to simplify travel, logistics, and vacation planning for individuals and businesses worldwide. We are dedicated to:
-                                </p>
-                                <ul>
-                                    <li>Providing safe, reliable, and efficient services.</li>
-                                    <li>Building lasting relationships with our customers based on trust and excellence.</li>
-                                    <li>Leveraging technology to enhance every aspect of the customer experience.</li>
-                                </ul>
-                                <p>
-                                    {{$siteName}} is here to redefine convenience and reliability across all our services.
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="goal" role="tabpanel" aria-labelledby="goal-tab">
-                                <p>Our goal is to be the go-to partner for all your logistics and travel needs. By 2030, we aim to:</p>
-                                <ul>
-                                    <li>Expand our network to over 200 countries.</li>
-                                    <li>Serve over 10,000 satisfied customers annually.</li>
-                                    <li>Innovate and lead in sustainable logistics and travel solutions.</li>
-                                </ul>
-                                <p>
-                                    With {{$siteName}}, your satisfaction is not just a promise—it’s a guarantee.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="theme-btn">
-                            <a href="{{url('about')}}" class="default-btn">Know More</a>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- About Section End -->
 
-    <!-- Transport System Section Start -->
-    <section class="transport-section pb-70">
-        <div class="container">
-            <div class="section-title text-center">
-                <span>Our Services</span>
-                <h2>We Provide Products All over The World</h2>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-                    <div class="transport-card">
-                        <div class="transport-img">
-                            <img src="{{asset('home/img/tour.jpg')}}" alt="transport image">
-                        </div>
-                        <div class="transport-text">
-                            <i class="icofont-airplane-alt"></i>
-                            <h3> Tour Services</h3>
-                            <p>
-                                Explore the world with {{$siteName}}’s premium tour services. We offer guided tours, adventure
-                                expeditions, and cultural experiences tailored to your preferences.
-                            </p>
-                            <ul>
-                                <li>Customizable itineraries for solo and group travelers</li>
-                                <li>Expert local guides to enrich your journey</li>
-                                <li>All-inclusive packages covering transport, meals, and activities</li>
-                            </ul>
-                        </div>
+            <div class="item">
+                <div class="feedback-block-one bg-white border-30">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <img src="{{asset('home/images/logo/p_logo_08.png')}}" alt="">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center"><img src="{{asset('home/images/icon/icon_04.svg')}}" alt=""></div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                    <div class="transport-card">
-                        <div class="transport-img">
-                            <img src="{{asset('home/img/vacation.jpg')}}" alt="transport image">
-                        </div>
-                        <div class="transport-text">
-                            <i class="icofont-truck-loaded"></i>
-                            <h3>Vacation Services</h3>
-                            <p class="card-text">
-                                Escape the ordinary with our exclusive vacation packages. From tropical retreats to luxury cruises, we create experiences that rejuvenate and inspire.
-                            </p>
-                            <ul>
-                                <li>Beach, mountain, and city vacations</li>
-                                <li>Luxury accommodations and exclusive activities</li>
-                                <li>Family, couple, or solo-friendly options</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6   wow animate__animated animate__fadeInUp" data-wow-duration="1s"  data-wow-delay=".6s">
-                    <div class="transport-card">
-                        <div class="transport-img">
-                            <img src="{{asset('home/img/services/3.jpg')}}" alt="transport image">
-                        </div>
-                        <div class="transport-text">
-                            <i class="icofont-sail-boat-alt-1"></i>
-                            <h3>Travel Agency Service</h3>
-                            <p class="card-text">
-                                Simplify your travel plans with {{$siteName}}’s full-service travel agency. From booking flights to hotel reservations, we handle all the details for a seamless journey.
-                            </p>
-                            <ul>
-                                <li>Personalized travel planning for any destination</li>
-                                <li>Special packages for business and leisure travelers</li>
-                                <li>24/7 support for last-minute changes</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6   wow animate__animated animate__fadeInUp" data-wow-duration="1s"  data-wow-delay=".6s">
-                    <div class="transport-card">
-                        <div class="transport-img">
-                            <img src="{{asset('home/img/visa-prep.webp')}}" alt="transport image">
-                        </div>
-                        <div class="transport-text">
-                            <i class="icofont-sail-boat-alt-1"></i>
-                            <h3>Visa Preparation Service</h3>
-                            <p class="card-text">
-                                Let {{$siteName}} assist with all your visa needs. From application guidance to document verification, we ensure a smooth visa process for your travel.
-                            </p>
-                            <ul>
-                                <li>Step-by-step visa application support</li>
-                                <li>Expert advice on document requirements</li>
-                                <li>Visa processing for tourism, work, and study</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6   wow animate__animated animate__fadeInUp" data-wow-duration="1s"  data-wow-delay=".6s">
-                    <div class="transport-card">
-                        <div class="transport-img">
-                            <img src="{{asset('home/img/Flight_Tracking_Solution_Map.jpg')}}" alt="transport image">
-                        </div>
-                        <div class="transport-text">
-                            <i class="icofont-sail-boat-alt-1"></i>
-                            <h3>Flight Tracking</h3>
-                            <p class="card-text">
-                                Stay updated with real-time flight tracking by {{$siteName}}. Monitor your flight’s status, delays, and changes at your fingertips.
-                            </p>
-                            <ul>
-                                <li>Real-time updates on departures and arrivals</li>
-                                <li>Notifications for schedule changes</li>
-                                <li>Accessible on any device, anytime</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6   wow animate__animated animate__fadeInUp" data-wow-duration="1s"  data-wow-delay=".6s">
-                    <div class="transport-card">
-                        <div class="transport-img">
-                            <img src="{{asset('home/img/banner/1.jpg')}}" alt="transport image">
-                        </div>
-                        <div class="transport-text">
-                            <i class="icofont-sail-boat-alt-1"></i>
-                            <h3>Logistics and Freight</h3>
-                            <p class="card-text">
-                                At {{$siteName}}, we specialize in providing reliable and efficient logistics and freight solutions. Whether you're shipping small parcels or large cargo, we ensure your goods are handled with care and delivered on time.
-                            </p>
-                            <ul>
-                                <li><strong>Air Freight:</strong> Fast and secure delivery for time-sensitive shipments.</li>
-                                <li><strong>Road Freight:</strong> Affordable and flexible solutions for domestic and regional transport.</li>
-                                <li><strong>Ocean Freight:</strong> Cost-effective shipping for large volumes of goods across international waters.</li>
-                                <li><strong>Rail Freight:</strong> Eco-friendly transportation for bulk goods over long distances.</li>
-                                <li><strong>Warehouse Solutions:</strong> Secure storage and inventory management tailored to your needs.</li>
-                            </ul>
-                        </div>
+                    <blockquote>
+                        "The **best digital banking platform** I’ve used. Instant fund transfers, seamless bill payments, and **top-notch security**."
+                    </blockquote>
+                    <div class="d-sm-flex align-items-center justify-content-between">
+                        <p class="m0"><span class="fw-500 text-dark fs-20">Sophia Reynolds,</span> CEO, Tech Innovators</p>
+                        <ul class="style-none d-flex rating">
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Transport System Section End -->
 
-
-
-    <!-- Feedback Section Strat -->
-    <section class="feedback-section feedback-bg pt-100">
-        <div class="container">
-            <div class="section-title text-center">
-                <span>Feedbacks</span>
-                <h2>Feedback From Our Clients</h2>
-                <p>Do not take our words for it, read what others say.</p>
-            </div>
-
-            <div class="feedback-slider owl-carousel owl-theme">
-                <div class="feedback-items">
-                    <i class="icofont-quote-right"></i>
-                    <p>
-                        {{$web->name}} has completely transformed the way we handle logistics. Their speed and reliability are unmatched,
-                        and their customer service is always available to assist with any questions. I highly recommend their
-                        services for both businesses and individuals!
-                    </p>
-
-                    <img src="{{asset('home/img/feedback/client-1.png')}}" alt="client image">
-                    <h3>J. Johnson</h3>
-                    <span>Entrepreneur</span>
-                </div>
-
-                <div class="feedback-items">
-                    <i class="icofont-quote-right"></i>
-                    <p>
-                        I used {{$web->name}} for my vacation planning, and they exceeded all my expectations. From flight bookings
-                        to hotel reservations, everything was seamless. They took the stress out of my travel plans, and I couldn’t be happier.
-                    </p>
-
-                    <img src="{{asset('home/img/feedback/client-2.png')}}" alt="client image">
-                    <h3>Mr. McMachman</h3>
-                    <span>Photographer</span>
-                </div>
-
-                <div class="feedback-items">
-                    <i class="icofont-quote-right"></i>
-                    <p>I was amazed by the level of care and attention given to my shipment. The real-time tracking feature kept me informed
-                        every step of the way, and my package arrived on time and in perfect condition. {{$web->name}} is my go-to for all my logistics needs!
-                    </p>
-
-                    <img src="http://ui-avatars.com/api/?name=Anton Sławosz" alt="client image">
-                    <h3>Anton Sławosz</h3>
-                    <span>Botanist</span>
+            <div class="item">
+                <div class="feedback-block-one bg-white border-30">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <img src="{{asset('home/images/logo/p_logo_07.png')}}" alt="">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center"><img src="{{asset('home/images/icon/icon_04.svg')}}" alt=""></div>
+                    </div>
+                    <blockquote>
+                        "**International money transfers have never been easier**. Competitive rates, instant processing, and no hidden fees!"
+                    </blockquote>
+                    <div class="d-sm-flex align-items-center justify-content-between">
+                        <p class="m0"><span class="fw-500 text-dark fs-20">Liam Carter,</span> Freelancer & Digital Nomad</p>
+                        <ul class="style-none d-flex rating">
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Feedback Section End -->
 
-    <!-- Company Section Start -->
-    <div class="company-section">
-        <div class="container">
-            <div class="company-slider owl-carousel owl-theme">
-                <div class="company-logo">
-                    <a href="index"><img src="{{asset('home/img/company/1.png')}}" alt="logo"></a>
-                </div>
-                <div class="company-logo">
-                    <a href="index"><img src="{{asset('home/img/company/2.png')}}" alt="logo"></a>
-                </div>
-                <div class="company-logo">
-                    <a href="index"><img src="{{asset('home/img/company/3.png')}}" alt="logo"></a>
-                </div>
-                <div class="company-logo">
-                    <a href="index"><img src="{{asset('home/img/company/4.png')}}" alt="logo"></a>
-                </div>
-                <div class="company-logo">
-                    <a href="index"><img src="{{asset('home/img/company/5.png')}}" alt="logo"></a>
+            <div class="item">
+                <div class="feedback-block-one bg-white border-30">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <img src="{{asset('home/images/logo/p_logo_08.png')}}" alt="">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center"><img src="{{asset('home/images/icon/icon_04.svg')}}" alt=""></div>
+                    </div>
+                    <blockquote>
+                        "A truly **modern banking experience**! The **virtual debit cards and bill payment features** make life so much easier."
+                    </blockquote>
+                    <div class="d-sm-flex align-items-center justify-content-between">
+                        <p class="m0"><span class="fw-500 text-dark fs-20">Emily Brooks,</span> E-commerce Entrepreneur</p>
+                        <ul class="style-none d-flex rating">
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Company Section End -->
+    <!-- /.feedback-section-one -->
 
-    <!-- Blog Section Start -->
-    <section class="blog-section pt-100 pb-70">
+    <!--
+    =====================================================
+        FAQ Section One
+    =====================================================
+    -->
+    <div class="faq-section-one bg-four position-relative z-1 pt-150 lg-pt-80 pb-120 lg-pb-80 border-30 mb-30 lg-mb-20">
         <div class="container">
-            <div class="section-title text-center">
-                <span>Latest News</span>
-                <h2>News of Our Transportation</h2>
-                <p></p>
+            <div class="row">
+                <div class="col-lg-9 m-auto">
+                    <div class="title-one text-center mb-80 xl-mb-60 md-mb-40">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                </div>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <a href="#">
-                                <img src="{{asset('home/img/blog/1.png')}}" alt="blog image">
-                            </a>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="accordion accordion-style-one" id="accordionOne">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    What services does this bank offer?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
+                                <div class="accordion-body">
+                                    <p class="fs-22">We provide a wide range of financial solutions, including savings and checking accounts, international money transfers, virtual debit cards, bill payments, and secure online banking.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="blog-text">
-
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How do I open an account?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
+                                <div class="accordion-body">
+                                    <p class="fs-22">Opening an account is quick and easy. Simply sign up online, verify your identity, and start managing your funds in minutes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    Are my transactions secure?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
+                                <div class="accordion-body">
+                                    <p class="fs-22">Yes, we use advanced encryption and security measures to ensure your transactions and personal data are fully protected.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="col-lg-6">
+                    <div class="accordion accordion-style-one" id="accordionTwo">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAOne" aria-expanded="false" aria-controls="collapseAOne">
+                                    How can I transfer money internationally?
+                                </button>
+                            </h2>
+                            <div id="collapseAOne" class="accordion-collapse collapse" data-bs-parent="#accordionTwo">
+                                <div class="accordion-body">
+                                    <p class="fs-22">Our international transfer feature allows you to send money globally at competitive exchange rates with low fees. Simply log in to your account, select your recipient, and complete the transfer securely.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATwo" aria-expanded="false" aria-controls="collapseATwo">
+                                    How do I order a virtual debit card?
+                                </button>
+                            </h2>
+                            <div id="collapseATwo" class="accordion-collapse collapse" data-bs-parent="#accordionTwo">
+                                <div class="accordion-body">
+                                    <p class="fs-22">You can request a virtual debit card directly from your online banking dashboard. The card is issued instantly and can be used for online purchases and subscriptions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAThree" aria-expanded="true" aria-controls="collapseAThree">
+                                    What should I do if I forget my password?
+                                </button>
+                            </h2>
+                            <div id="collapseAThree" class="accordion-collapse collapse" data-bs-parent="#accordionTwo">
+                                <div class="accordion-body">
+                                    <p class="fs-22">You can reset your password by clicking on "Forgot Password" on the login page. Follow the instructions sent to your registered email to create a new password securely.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-60 lg-mt-40">
+                <h4 class="mb-35">Didn't find what you were looking for?</h4>
+                <a href="{{ route('home.contact') }}" class="btn-two xl">Contact Us</a>
             </div>
         </div>
-    </section>
-    <!-- Blog Section End -->
+    </div>
+
 
 
 @endsection
