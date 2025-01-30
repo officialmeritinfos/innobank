@@ -105,7 +105,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="logo order-lg-0">
                         <a href="{{url('/')}}" class="d-flex align-items-center">
-                            <img src="{{asset('home/images/'.$web->logo)}}" alt="">
+                            <img src="{{asset('home/images/'.$web->logo)}}" alt="" style="width: 100px;">
                         </a>
                     </div>
                     <!-- logo -->
@@ -125,7 +125,7 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav align-items-lg-center">
                                 <li class="d-block d-lg-none"><div class="logo"><a href="{{url('/')}}" class="d-block">
-                                            <img src="{{asset('home/images/'.$web->logo)}}" alt=""></a></div></li>
+                                            <img src="{{asset('home/images/'.$web->logo)}}" alt="" style="width:100px;"></a></div></li>
 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="{{ route('home') }}" role="button"  aria-expanded="false">Home
@@ -201,7 +201,7 @@
                             <div class="footer-intro mb-30">
                                 <div class="logo">
                                     <a href="{{url('/')}}">
-                                        <img src="{{asset('home/images/'.$web->logo)}}" alt="">
+                                        <img src="{{asset('home/images/'.$web->logo)}}" alt="" style="width: 150px;">
                                     </a>
                                 </div>
                                 <!-- logo -->
