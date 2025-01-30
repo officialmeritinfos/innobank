@@ -47,4 +47,32 @@ class User extends Authenticatable
         return $this->hasMany(LoanRequest::class);
     }
 
+    /**
+     * Get the country associated with the user.
+     */
+    public function countrys()
+    {
+        return $this->belongsTo(Country::class, 'country', 'iso2');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'user_id');
+    }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'user_id');
+    }
+
+    public function virtualCards()
+    {
+        return $this->hasMany(VirtualCard::class, 'user_id');
+    }
+
+    public function externalCards()
+    {
+        return $this->hasMany(ExternalCard::class, 'user_id');
+    }
+
 }

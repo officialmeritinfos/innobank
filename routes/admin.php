@@ -4,19 +4,11 @@ use App\Http\Controllers\Admin\Coins;
 use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\DeliveryStageController;
-use App\Http\Controllers\Admin\Deposits;
+use App\Http\Controllers\Admin\DepositController;
 use App\Http\Controllers\Admin\FlightController;
-use App\Http\Controllers\Admin\Investments;
-use App\Http\Controllers\Admin\Investors;
-use App\Http\Controllers\Admin\ManagedAccountDurations;
-use App\Http\Controllers\Admin\ManagedAccounts;
-use App\Http\Controllers\Admin\Notifications;
-use App\Http\Controllers\Admin\Packages;
-use App\Http\Controllers\Admin\PromoController;
 use App\Http\Controllers\Admin\Settings;
-use App\Http\Controllers\Admin\Transfers;
-use App\Http\Controllers\Admin\WebSettings;
-use App\Http\Controllers\Admin\Withdrawals;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\WithdrawalController;
 use App\Http\Controllers\Auth\Login;
 use Illuminate\Support\Facades\Route;
 
@@ -37,8 +29,51 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard',[Dashboard::class,'landingPage'])->name('admin.dashboard');
 /*================ DEPOSITS ROUTE ====================*/
-Route::get('deposits',[Settings::class,'landingPage'])->name('deposits.index');
-Route::get('deposits/{id}/detail',[Settings::class,'processSetting'])->name('deposits.detail');
+Route::get('deposits',[DepositController::class,'landingPage'])->name('deposits.index');
+Route::get('deposits/failed',[DepositController::class,'failedDeposit'])->name('deposits.failed');
+Route::get('deposits/completed',[DepositController::class,'completedDeposits'])->name('deposits.completed');
+Route::get('deposits/{id}/detail',[DepositController::class,'depositDetail'])->name('deposits.detail');
+Route::post('deposits/{id}/update', [DepositController::class, 'updateDepositStatus'])->name('deposits.update');
+Route::delete('deposits/{id}/delete', [DepositController::class, 'deleteTransaction'])->name('deposits.transactions.delete');
+/*================ WITHDRAWAL ROUTE ====================*/
+Route::get('withdrawals',[WithdrawalController::class,'landingPage'])->name('withdrawals.index');
+Route::get('withdrawals/failed',[WithdrawalController::class,'failedWithdrawals'])->name('withdrawals.failed');
+Route::get('withdrawals/completed',[WithdrawalController::class,'completedWithdrawals'])->name('withdrawals.completed');
+Route::get('withdrawals/{id}/detail',[WithdrawalController::class,'withdrawalDetail'])->name('withdrawals.detail');
+Route::put('withdrawals/{id}/update', [WithdrawalController::class, 'updateWithdrawalStatus'])->name('withdrawals.update');
+Route::delete('withdrawals/{id}/delete', [WithdrawalController::class, 'deleteTransaction'])->name('withdrawal.transactions.delete');
+
+/*================ USERS ROUTE ====================*/
+Route::get('users/index',[UsersController::class,'landingPage'])->name('users.index');
+Route::get('users/inactive',[UsersController::class,'inactiveUsers'])->name('users.inactive');
+Route::get('users/{id}/login',[UsersController::class,'loginUser'])->name('users.login');
+Route::get('users/create',[UsersController::class,'newUser'])->name('users.new');
+Route::post('users/create/process',[UsersController::class,'createUser'])->name('users.new.process');
+Route::get('users/{id}/details',[UsersController::class,'userDetails'])->name('users.details');
+Route::delete('users/{id}/delete', [UsersController::class, 'deleteUser'])->name('user.delete');
+// Funds Management
+Route::post('users/{id}/add-funds', [UsersController::class, 'addFunds'])->name('user.addFunds');
+Route::post('users/{id}/deduct-funds', [UsersController::class, 'deductFunds'])->name('user.deductFunds');
+
+// Loan Management
+Route::post('users/{id}/add-loan', [UsersController::class, 'addLoan'])->name('user.addLoan');
+Route::post('users/{id}/deduct-loan', [UsersController::class, 'deductLoan'])->name('user.deductLoan');
+
+// Credit Score Management
+Route::post('users/{id}/add-credit-score', [UsersController::class, 'addCreditScore'])->name('user.addCreditScore');
+Route::post('users/{id}/deduct-credit-score', [UsersController::class, 'deductCreditScore'])->name('user.deductCreditScore');
+
+/*================ LOAN ROUTE ====================*/
+Route::get('loans/index',[UsersController::class,'landingPage'])->name('loans.index');
+Route::get('loans/{id}/details',[UsersController::class,'landingPage'])->name('loans.details');
+/*================ BILLS ROUTE ====================*/
+Route::get('bills/index',[UsersController::class,'landingPage'])->name('bills.index');
+Route::get('bills/{id}/details',[UsersController::class,'landingPage'])->name('bills.details');
+/*================ EXTERNAL CARDS ROUTE ====================*/
+Route::get('cards/index',[UsersController::class,'landingPage'])->name('cards.index');
+/*================ VIRTUAL CARDS ROUTE ====================*/
+Route::get('virtual/cards/index',[UsersController::class,'landingPage'])->name('virtual.cards.index');
+Route::get('virtual/cards/{id}/details',[UsersController::class,'landingPage'])->name('virtual.cards.details');
 
 
 

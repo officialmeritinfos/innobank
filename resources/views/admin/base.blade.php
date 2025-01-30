@@ -72,13 +72,13 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Utilities</h6>
-                    <a class="collapse-item" href="{{'#'}}">Users</a>
-                    <a class="collapse-item" href="{{'#'}}">Deposits</a>
-                    <a class="collapse-item" href="{{'#'}}">Withdrawals</a>
-                    <a class="collapse-item" href="{{'#'}}">Loans</a>
-                    <a class="collapse-item" href="{{'#'}}">Bill Payments</a>
-                    <a class="collapse-item" href="{{'#'}}">External Cards</a>
-                    <a class="collapse-item" href="{{'#'}}">Virtual Card Applications</a>
+                    <a class="collapse-item" href="{{ route('admin.users.index') }}">Users</a>
+                    <a class="collapse-item" href="{{ route('admin.deposits.index') }}">Deposits</a>
+                    <a class="collapse-item" href="{{ route('admin.withdrawals.index') }}">Withdrawals</a>
+                    <a class="collapse-item" href="{{ route('admin.loans.index') }}">Loans</a>
+                    <a class="collapse-item" href="{{ route('admin.bills.index') }}">Bill Payments</a>
+                    <a class="collapse-item" href="{{ route('admin.cards.index') }}">External Cards</a>
+                    <a class="collapse-item" href="{{ route('admin.virtual.cards.index') }}">Virtual Card Applications</a>
                 </div>
             </div>
         </li>

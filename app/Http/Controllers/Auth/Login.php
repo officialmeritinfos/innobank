@@ -63,7 +63,7 @@ class Login extends Controller
             return back()->with('success', 'Email Verification mail sent. Please check your inbox and spam folder.');
         }
 
-        if ($user->twoWay) {
+        if ($user->twoWay==1) {
             Notification::send($user, new TwoFactorMail($user));
             User::where('id', $user->id)->update(['twoWayPassed' => false]);
             Auth::logout();
@@ -72,7 +72,7 @@ class Login extends Controller
 
         User::where('id', $user->id)->update(['twoWayPassed' => true]);
 
-        $redirectRoute = $user->is_admin ? route('admin.dashboard') : route('user.dashboard');
+        $redirectRoute = $user->is_admin ? route('admin.admin.dashboard') : route('user.dashboard');
 
         return redirect($redirectRoute)->with('info', 'Login successful.');
     }
