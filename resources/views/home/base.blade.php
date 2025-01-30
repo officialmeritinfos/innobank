@@ -112,7 +112,7 @@
                     <div class="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
                         <ul class="d-flex align-items-center style-none">
                             <li class="d-none d-md-inline-block ms-3">
-                                <a href="login" class="btn-one">Let’s Started</a>
+                                <a href="{{route('register')}}" class="btn-one">Let’s Started</a>
                             </li>
                         </ul>
                     </div>
