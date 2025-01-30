@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Notifications\EmailVerifyMail;
 use App\Notifications\InvestmentMail;
 use App\Notifications\WelcomeMail;
+use App\Rules\ReCaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
@@ -72,6 +73,7 @@ class Register extends Controller
             'account_currency' => ['required'],
             'referral' => ['nullable', 'exists:users,username'],
             'picture' => ['required', 'image', 'max:2048'],
+            'g-recaptcha-response' => ['required', new Recaptcha],
         ]);
 
         if ($validator->fails()) {
