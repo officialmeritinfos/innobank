@@ -1,13 +1,17 @@
 <?php
 
+use App\Http\Controllers\Admin\BillsController;
+use App\Http\Controllers\Admin\CardController;
 use App\Http\Controllers\Admin\Coins;
 use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\DeliveryStageController;
 use App\Http\Controllers\Admin\DepositController;
 use App\Http\Controllers\Admin\FlightController;
+use App\Http\Controllers\Admin\LoansController;
 use App\Http\Controllers\Admin\Settings;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\VirtualCardController;
 use App\Http\Controllers\Admin\WithdrawalController;
 use App\Http\Controllers\Auth\Login;
 use Illuminate\Support\Facades\Route;
@@ -62,18 +66,26 @@ Route::post('users/{id}/deduct-loan', [UsersController::class, 'deductLoan'])->n
 // Credit Score Management
 Route::post('users/{id}/add-credit-score', [UsersController::class, 'addCreditScore'])->name('user.addCreditScore');
 Route::post('users/{id}/deduct-credit-score', [UsersController::class, 'deductCreditScore'])->name('user.deductCreditScore');
-
 /*================ LOAN ROUTE ====================*/
-Route::get('loans/index',[UsersController::class,'landingPage'])->name('loans.index');
-Route::get('loans/{id}/details',[UsersController::class,'landingPage'])->name('loans.details');
+Route::get('loans/index',[LoansController::class,'landingPage'])->name('loans.index');
+Route::get('loans/approved',[LoansController::class,'approvedLoans'])->name('loans.approved');
+Route::get('loans/rejected',[LoansController::class,'rejectedLoans'])->name('loans.rejected');
+Route::post('loans/{id}/approve', [LoansController::class, 'approve'])->name('loans.approve');
+Route::post('loans/{id}/reject', [LoansController::class, 'reject'])->name('loans.reject');
+Route::delete('loans/{id}/delete', [LoansController::class, 'destroy'])->name('loans.delete');
 /*================ BILLS ROUTE ====================*/
-Route::get('bills/index',[UsersController::class,'landingPage'])->name('bills.index');
-Route::get('bills/{id}/details',[UsersController::class,'landingPage'])->name('bills.details');
+Route::get('bills/index',[BillsController::class,'landingPage'])->name('bills.index');
+Route::get('bills/approved',[BillsController::class,'approvedBill'])->name('bills.approved');
+Route::get('bills/failed',[BillsController::class,'failedBill'])->name('bills.failed');
+Route::get('bills/{id}/details',[BillsController::class,'billDetails'])->name('bills.details');
+Route::post('bill-payments/{id}/update-status', [BillsController::class, 'updateStatus'])->name('bills.update_status');
 /*================ EXTERNAL CARDS ROUTE ====================*/
-Route::get('cards/index',[UsersController::class,'landingPage'])->name('cards.index');
+Route::get('cards/index',[CardController::class,'landingPage'])->name('cards.index');
 /*================ VIRTUAL CARDS ROUTE ====================*/
-Route::get('virtual/cards/index',[UsersController::class,'landingPage'])->name('virtual.cards.index');
-Route::get('virtual/cards/{id}/details',[UsersController::class,'landingPage'])->name('virtual.cards.details');
+Route::get('virtual/cards/index',[VirtualCardController::class,'landingPage'])->name('virtual.cards.index');
+Route::get('virtual/cards/approved',[VirtualCardController::class,'approved'])->name('virtual.cards.approved');
+Route::get('virtual/cards/rejected',[VirtualCardController::class,'rejected'])->name('virtual.cards.rejected');
+Route::post('virtual-cards/{id}/update-status', [VirtualCardController::class, 'updateStatus'])->name('virtual.cards.update_status');
 
 
 

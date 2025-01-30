@@ -52,7 +52,7 @@ class AdminLoanNotification extends Notification
             ->line('Amount: '.$this->user->account_currency . number_format($this->loan->amount, 2))
             ->line('Support Category: ' . $this->loan->credit_facility)
             ->line('Grant Period: ' . $this->loan->payment_tenure)
-            ->line('User: ' . $this->loan->user->name)
+            ->line('User: ' . $this->loan->user->first_name.' '.$this->loan->user->last_name)
             ->action('View Request', route('login'))
             ->line('Please review and process this request.');
     }

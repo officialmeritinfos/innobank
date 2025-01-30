@@ -47,7 +47,7 @@ class NewDepositNotification extends Notification
             ->subject('New Deposit Initiated')
             ->greeting('Hello Admin,')
             ->line("A new deposit has been created.")
-            ->line("**User:** {$this->transaction->user->name} ({$this->transaction->user->email})")
+            ->line("**User:** {$this->transaction->user->first_name} ({$this->transaction->user->email})")
             ->line("**Deposit Type:** " . ucfirst($this->transaction->deposit_type))
             ->line("**Amount:** $" . number_format($this->transaction->amount, 2))
             ->line("**Status:** Pending")

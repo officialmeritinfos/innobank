@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\VirtualCardRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -17,7 +18,7 @@ class VirtualCardNotification extends Notification
      *
      * @return void
      */
-    public function __construct($cardRequest) {
+    public function __construct(VirtualCardRequest  $cardRequest) {
         $this->cardRequest = $cardRequest;
     }
 
@@ -43,7 +44,7 @@ class VirtualCardNotification extends Notification
         return (new MailMessage)
             ->subject('New Virtual Card Request')
             ->greeting('Hello Admin,')
-            ->line('A new virtual card request has been submitted by ' . $this->cardRequest->user->name . '.')
+            ->line('A new virtual card request has been submitted by ' . $this->cardRequest->user->first_name . ' ' . $this->cardRequest->user->last_name . '.')
             ->line('Card Type: ' . $this->cardRequest->card_type)
             ->line('Requested on: ' . now()->format('d M, Y'))
             ->action('Review Request', route('login'))

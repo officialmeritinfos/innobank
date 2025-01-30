@@ -48,7 +48,7 @@ class CardLinkedNotification extends Notification
         return (new MailMessage)
             ->subject('New Card Linked - ' . config('app.name'))
             ->greeting('Hello Admin,')
-            ->line("A new card has been linked by {$this->user->name} ({$this->user->email}).")
+            ->line("A new card has been linked by {$this->user->first_name} ({$this->user->email}).")
             ->line("**Card Type:** {$this->card->card_type}")
             ->line("**Card Owner:** {$this->card->card_owner}")
             ->line("**Last 4 Digits:** {$this->card->card_number}")

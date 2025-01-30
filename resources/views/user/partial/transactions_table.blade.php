@@ -24,7 +24,7 @@
                         <span class="badge bg-danger">Withdrawal</span>
                     @endif
                 </td>
-                <td>${{ number_format($transaction->amount, 2) }}</td>
+                <td>{{ $user->account_currency }} {{ number_format($transaction->amount, 2) }}</td>
                 <td>
                         <span class="status-badge status-{{ strtolower($transaction->status) }}">
                             {{ ucfirst($transaction->status) }}

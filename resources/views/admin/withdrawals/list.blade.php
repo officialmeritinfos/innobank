@@ -1,5 +1,4 @@
 @extends('admin.base')
-
 @section('content')
 
     <!-- DataTales Example -->

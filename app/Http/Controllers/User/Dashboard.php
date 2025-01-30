@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountTransaction;
 use App\Models\GeneralSetting;
 use App\Models\User;
 use App\Notifications\InvestmentMail;
@@ -21,6 +22,7 @@ class Dashboard extends Controller
             'pageName' => 'User Dashboard',
             'user'     =>  $user,
             'web'=>$web,
+            'transactions' => AccountTransaction::where('user_id',$user->id)->orderBy('id','desc')->take(10)->get(),
         ];
 
         return view('user.dashboard',$dataView);
