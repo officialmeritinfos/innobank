@@ -58,7 +58,7 @@ class Register extends Controller
             'last_name' => ['required', 'max:150'],
             'username' => ['required', 'max:30', 'unique:users,username'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'phone' => ['required', 'max:30'],
+            'phone' => ['required', 'max:30','unique:users,phone'],
             'dob' => ['required', 'date'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'occupation' => ['required'],
