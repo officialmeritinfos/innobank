@@ -71,13 +71,13 @@
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label>Username</label>
+                            <label>Username(This is for signing-in to your account)</label>
                             <input class="form-control" type="text" name="username" value="{{old('username')}}" placeholder="Enter your username">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Email(This is for receiving mails from the Bank)</label>
                             <input class="form-control" type="email" name="email" value="{{old('email')}}" placeholder="Enter your email">
                         </div>
                     </div>
