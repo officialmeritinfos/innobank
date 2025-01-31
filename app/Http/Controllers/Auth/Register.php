@@ -43,7 +43,7 @@ class Register extends Controller
             'pageName'=>'Account Registration',
             'referral'=>$request->get('referral'),
             'countries' => Country::all(),
-            'currencies' => Country::groupBy('currency')->get(),
+            'currencies' => Country::where('currency','USD')->get(),
         ];
 
         return view('auth.register',$dataView);
